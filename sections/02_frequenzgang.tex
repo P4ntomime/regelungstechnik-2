@@ -1,0 +1,178 @@
+\subsection{Frequenzgang}{114}      % besser als section?
+
+Wird ein Sinus-Signal $u(t)$ in ein LZI-System gegeben, so ist das Ausgangssignal $y(t)$ wieder sinusförmig.
+Dabei ändern sich meist die \textbf{Amplitude} und die \textbf{Phase}.
+Die \textbf{Frequenz} hingegen bleibt \textbf{gleich}.\\
+Die Amplitude und die Frequenz des Ausgangssignals (bzw. deren Änderung) kann allerdings frequenzabhängig sein!
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/lzi_system.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{tabular}{ll}
+        $A$             & Amplitude Eingangssignal \\
+        $B$             & Amplitude Ausgangssignal \\
+        $\frac{B}{A}$   & Verstärkung \\
+        $\varphi$       & Phasenverschiebung \\
+    \end{tabular}
+\end{minipage}
+
+\fbox{\parbox{0.8\linewidth}{
+\begin{tabular}{l c l}
+    $ u(t) = A \cdot \cos(\omega t) $ & & $ y(t) = B \cdot \cos(\omega t + \varphi) + \text{Transiente} $
+\end{tabular}
+}}
+
+\subsubsection{Transiente}
+
+ Die Transiente beschreibt den Vorgang, bis der eingeschwungene Zustand (\textbf{steady state}) erreicht ist.
+ In der Praxis betrachtet man häufig $t = 5 \tau$ als Ende des Einschwingvorgangs \\
+ \textrightarrow \textbf{Uns interessiert nur der der steady state!}
+
+
+\subsubsection{Darstellung des Frequenzgangs}
+
+% Der Frequenzgang stellt die Informationen zu einem System im Frequenzbereich dar. Es handelt sich hierbei um dieselben Informationen
+% wie im Zeitbereich. Allerdings sind die Berechnungen im Frequenzbereich wesentlich einfacher als im Zeitbereich \\
+Der Frequenzgang kann mittels folgenden Diagrammen dargestellt werden: 
+
+\begin{itemize}
+    \item Nyquist-Plot (Ortskurve)
+    \item Bode-Plot
+    \item Zeiger-Diagramm % stimmt das? 
+\end{itemize}
+
+
+\subsection{Frequenzgang $G(j \omega)$ als komplexe Zahl}{116}
+
+\vspace{-0.3cm} % reduce space 
+$$ \boxed{ G(j \omega) = |G(j \omega)| \cdot e^{j \angle G(j \omega)} = \frac{B}{A} \cdot e^{j  \varphi} } $$
+
+
+\subsection{Frequenzgang der Grundglieder}
+
+\includegraphics[width=\columnwidth]{images/frequenzgaenge_grundglieder.png} \\
+\textrightarrow Zusammengesetzte Grundglieder: siehe Skript S. 204-208
+
+
+\subsection{Darstellung mit Zeigern}
+
+Im Frequenzbereich kann ein Signal \textbf{bei einer bestimmten Frequenz} als Zeigerdiagramm dargestellt werden.
+Dabei wird das Signal $\underline{y}(t)$ als Zeiger $\underline{Y}$ zur Zeit $t=0$ dargestellt, welcher anschliessend mit Frequenz $\omega = 2 \pi f$ rotiert.
+Das zeitliche Signal $y(t)$ entspricht dem \textbf{Realteil} von $\underline{y}(t)$
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/zeigerdiagramm_1.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/zeigerdiagramm_2.png}
+\end{minipage}
+
+
+\subsubsection{Komplexe Amplitude $Y$}
+
+\vspace{-0.5cm} % reduce space before align environment
+\begin{align*}
+    \underline{y}(t) &= B \cdot [\cos(\omega t + \varphi) + j \sin(\omega t + \varphi)] \\
+                &= B \cdot e^{j(\omega t + \varphi)} = \cbl{B \cdot e^{j \varphi}} \cdot e^{j \omega t} \\
+                &= \cbl{\underline{Y}} \cdot e^{j \omega t}
+\end{align*}
+
+Die in der Gleichung vorkommenden Grössen sind definiert als \\
+\begin{tabular}{lll}
+    $ | \underline{y}(t) | = B$                 & Maximale Amplitude des Ausgangssignals \\
+    $ \mathrm{Re}(\underline{y}(t)) = y(t)$     & Ausgangssignal (zeitlich) \\
+    $ \underline{y}(0) = \cbl{\underline{Y}} $  & Anfangszeiger (komplexe Amplitude)
+\end{tabular}
+
+
+\subsubsection{Ableitung / Integral im Frequenzbereich}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ \boxed{ \underline{\dot{y}}(t) = \underline{Y} \cdot j \omega \cdot e^{j \omega t} } $$
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$\boxed{ \int y(t) \, \diff t = \frac{\underline{Y}}{j \omega} \cdot e^{j \omega t} } $$
+\end{minipage}
+
+
+\subsection{Bestimmung des Frequenzgangs aus DGL}
+
+\begin{enumerate}
+    \item DGL des Systems in Frequenzbereich transformieren
+    \item Geeignet umformen: $G(j \omega) = \frac{\underline{Y}}{\underline{U}}$
+    \item Falls gewünscht: Amplitude $|G(j \omega)|$ und Phase $\varphi$ bestimmen
+\end{enumerate}
+
+
+\example{$\text{PT}_1$ Glied}
+
+\vspace{-0.5cm} % reduce space
+$$ T \dot{y} + y(t) = K u(t) \quad \underrightarrow{\text{Frequenzbereich}} \quad 
+T \cdot j \omega \cdot \underline{Y} + \underline{Y} = [j \omega T + 1] \cdot \underline{Y} = K \underline{U} $$
+$$ \frac{\underline{Y}}{\underline{U}} = \frac{K}{j \omega T + 1} = G(j \omega) $$
+$$ |G(j \omega)| = \frac{|\underline{Y}|}{|\underline{U}|} = \frac{K}{\sqrt{(\omega T)^2 + 1^2}} \qquad \varphi = \frac{K}{1 + (\omega T)^2} - j \frac{K \omega T}{1 + (\omega T)^2 } + \pi $$
+
+
+\subsubsection{Allgemeiner Fall}
+
+
+\vspace{-0.5cm} % reduce space before align environment
+\begin{align*}
+    a_n y(t)^{(n)} + \cdots  + a_1 \dot{y}(t) + a_0 y(t) &= b_m u(t)^{(m)} + \cdots + b_1 \dot{u}(t) + b_0 u(t) \\
+    a_n (j \omega)^n \cdot \underline{Y} + \cdots + a_1 j \omega \cdot \underline{Y} + a_0 \underline{Y} 
+    &=  b_m (j \omega)^m \cdot \underline{U} + \cdots + b_1 j \omega \cdot \underline{U} + b_0 \underline{U} \\
+    \frac{\underline{Y}}{\underline{U}} 
+    &= \frac{b_m (j \omega)^m + \cdots + b_1 j \omega + b_0}{a_n (j \omega)^n + \cdots + a_1 j \omega + a_0} = G(j \omega) \\
+    |G(j \omega)| = \frac{|\underline{Y}|}{|\underline{U}|}
+    &= \frac{| b_m (j \omega)^m + \cdots + b_1 j \omega + b_0 |}{| a_n (j \omega)^n + \cdots + a_1 j \omega + a_0 |} \\
+    \varphi = \angle G(j \omega) &= \arctan \Big( \frac{\mathrm{Im} \{G(j \omega)\}}{\mathrm{Re}\{G(j \omega)\}} \Big) (+ \pi)
+\end{align*}
+
+
+
+
+\subsection{Serieschaltung von LZI-Systemen}
+
+\begin{center}
+    \includegraphics[width=0.7\columnwidth]{images/frequenzgang_serieschaltung.png}
+\end{center}
+$$ \boxed{ \underline{Y} = \underbrace{G_1(j \omega) \cdot G_2(j \omega)}_{G(j \omega)} \cdot \underline{U} } $$
+$$ G_1 \dot G_2 = |G_1| \cdot e^{j \angle G_1} \cdot |G_2| \cdot e^{j \angle G_2} = |G_1| |G_2| \cdot e^{j (\angle G_1 + \angle G_2)} $$
+
+
+\subsection{Parallelschaltung von LZI-Systemen}
+
+\begin{center}
+    \includegraphics[width=0.5\columnwidth]{images/frequenzgang_parallelschaltung.png}
+\end{center}
+$$ \boxed{ \underline{Y} = \underline{Y}_1 + \underline{Y}_2 = G_1(j \omega) \cdot \underline{U} + G_2(j \omega) \cdot \underline{U} 
+    = \underbrace{(G_1(j \omega) + G_2(j \omega))}_{G(j \omega)} \cdot \underline{U}} $$
+$$ G_1 + G_2 = \mathrm{Re}\{ G_1 \} + \mathrm{Re}\{ G_2 \} + j ( \mathrm{Im}\{ G_1 \} + \mathrm{Im}\{ G_2 \}) $$
+
+
+\subsection{Kreisschaltung (Gegenkopplung) von LZI-Systemen}
+
+\begin{minipage}[c]{0.5\columnwidth}
+    \includegraphics[width=\columnwidth]{images/frequenzgang_kreisschaltung.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ \boxed{ \underline{Y} = \underbrace{\frac{G_1(j \omega)}{1 + G_1(j \omega) \cdot G_2(j \omega)}}_{G(j \omega)} \cdot \underline{U}} $$
+    \textrightarrow Anwendung von \textbf{Mason Regel} (SigSys)
+\end{minipage}
+
+
+\subsubsection{Vorgehen Frequenzgang ermitteln}
+\begin{enumerate}
+    \item Gleichung zum Blockdiagramm aufstellen
+    \item Nach $\underline{Y}$ umformen 
+\end{enumerate}
+
+\subsection{Frequenzgang -- Übertragungsfunktion (UTF)}
+
+Der Frequenzgang $G(j \omega)$ und du Übertragungsfunktion $G(s)$ mit $s = \sigma + j \omega$ hängen folgendermassen zusammen:
+$$ \boxed{G(j \omega) = G(s) \big\vert_{s = j \omega}} $$
