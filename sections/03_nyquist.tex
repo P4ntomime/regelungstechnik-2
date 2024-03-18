@@ -54,7 +54,7 @@ Wähle $K = K_0$, sodass sich die Ortskurve immer innerhalb des Einheitskreises 
 \vspace{0.1cm}
 \begin{itemize}
     \item Befindet sich die Ortskurve eines Systems immer \textbf{innerhalb des Einheitskreises}, so ist der offene Regelkreis stabil. \\
-        \textrightarrow Daraus folgt, dass auch der geschlossene Regelkreis stabil sein muss.
+        \textrightarrow\\ Daraus folgt, dass auch der geschlossene Regelkreis stabil sein muss.
     \item Führungsübertragungsfunktion für $K \ll K_0$:\\
     $G_f(j \omega) = \frac{K \cdot G_0(j \omega)}{1 + K \cdot G_0(j \omega)} \approx K \cdot G_0(j \omega)$ 
 \end{itemize}
@@ -69,7 +69,7 @@ Wähle $K = K_{krit} > K_0$, sodass die Ortskurve den Punkt $-1$ schneidet.
     \item Die Frequenz $\omega_{\pi}$, für die $G_0(j \omega_{\pi})= -1 = e^{- \pi}$ heisst \textbf{kritische Frequenz}. Mit dieser 
         kritischen Frequenz schwingt das System.
     \item Die Führungsübertragungsfunktion $G_f(j \omega) = \frac { K \cdot G_0(j \omega)}{1 + K \cdot G_0(j \omega)}$ wird bei 
-    der kritischen Frequenz zu $G_f(j \omega_{\pi}) = \frac{-1}{1-1} = - \infty $ \textrightarrow Grenzstabilität
+    der kritischen Frequenz zu $G_f(j \omega_{\pi}) = \frac{-1}{1-1} = - \infty $ \textrightarrow\\ Grenzstabilität
 \end{itemize}
 
 
@@ -95,13 +95,13 @@ zu beurteilen
 \fbox{\parbox{0.95\columnwidth}{
 \begin{itemize}
     \item Gemäss Abschnitt ~\ref{Kreisschaltung mehrere Bloecke}  wird $G_0 = \prod_i G_i$ gebildet aus den seriegeschalteten
-        Teilsystemen des offenen Regelkreises \cbl{(\textrightarrow Produkt aller $G_i$ \textbf{im Feedback-Loop})}
+        Teilsystemen des offenen Regelkreises \cbl{(\textrightarrow\ Produkt aller $G_i$ \textbf{im Feedback-Loop})}
     \item $G_0$ muss dabei einem \textbf{Prozess mit Ausgleich \cbl{(stabilen Prozess)}} entsprechen; zusätzlich 
     \textbf{dürfen} noch einer oder zwei Integratoren seriegeschaltet sein\\
         Mit Polen formuliert: Bei $G_0$ sind maximal zwei Pole bei Null erlaubt; alle weiteren Pole müssen in der linken Halbebene liegen
     \item Damit der geschlossene Regelkreis stabil ist, muss der kritische Punkt $-1$ \textbf{links} der Nyquistkurve von $G_0$ liegen,
         wenn diese in Richtung zunehmender Frequenz durchlaufen wird ($\omega = 0 \ldots \infty$) 
-        \cbl{\textrightarrow 'links der Kurve': Man befindet sich \textbf{auf der Kurve} und 'schaut' nach links und muss
+        \cbl{\textrightarrow\ 'links der Kurve': Man befindet sich \textbf{auf der Kurve} und 'schaut' nach links und muss
         den Punkt $-1$ 'sehen'}
 \end{itemize}
 }}
@@ -164,11 +164,11 @@ modellierten Prozess oder einer sich ändernden Regelstrecke noch einen stabilen
 \begin{itemize}
     \item Durchtrittsfrequenz $\omega_{D}$ \\
         Frequenz, bei der die Kurve den Einheitskreis durchquert: $| G_{0}(j \omega_{D}) = 1 |$ \\
-        \textrightarrow Phasenreserve $\Phi_{RES}$
+        \textrightarrow\ Phasenreserve $\Phi_{RES}$
     
     \item Phasenschnittfrequenz $\omega_{\pi}$ \\
         Frequenz, bei der die Kurve die reelle Achse durchquert: $\Im{G_{0}(j \omega_{\pi})} = 0$\\
-        \textrightarrow Verstärkungsreserve $K_{RES}$
+        \textrightarrow\ Verstärkungsreserve $K_{RES}$
 \end{itemize}
 
 
@@ -177,7 +177,7 @@ modellierten Prozess oder einer sich ändernden Regelstrecke noch einen stabilen
 Die Verstärkungsreserve $K_{RES}$ liefert direkt den Toleranzwert für den Fall, dass die \textbf{Modellunsicherheit} des 
 offenen Regelkreises bei der \textbf{Verstärkung} liegt. \\
 Der Abstand zur Ursprung bei der Phasenschnittfrequenz $\omega_{\pi}$ entspricht $\frac{1}{K_{RES}}$ \\
-\textrightarrow Wenn anstatt dem Nominalfrequenzgang $G_0(j \omega)$ tatsächlich $K_{RES} \cdot G_0(j \omega)$ vorliegt, wird der
+\textrightarrow\ Wenn anstatt dem Nominalfrequenzgang $G_0(j \omega)$ tatsächlich $K_{RES} \cdot G_0(j \omega)$ vorliegt, wird der
 Regelkreis \textbf{grenzstabil}!
 
 
@@ -185,7 +185,7 @@ Regelkreis \textbf{grenzstabil}!
 
 Die Phasenreserve $\Phi_{RES}$ liefert einen Toleranzwert für den Fall, dass die \textbf{Modellunsicherheit} des
 offenen Regelkreises bei der \textbf{Totzeit} liegt. \\
-\textrightarrow Wenn anstatt dem Nominalfrequenzgang $G_0(j \omega)$ tatsächlich $G_0(j \omega) \cdot e^{- j \omega T_t}$ vorliegt, 
+\textrightarrow\ Wenn anstatt dem Nominalfrequenzgang $G_0(j \omega)$ tatsächlich $G_0(j \omega) \cdot e^{- j \omega T_t}$ vorliegt, 
 wird der Regelkreis \textbf{grenzstabil}! \\
 
 Der Zusammenhang zwischen Phasendrehung und Totzeit ist
@@ -212,3 +212,8 @@ $$ \boxed{ T_t = \frac{\Phi_{RES}}{\omega_D}  \quad \text{ wobei } [\Phi_{RES}] 
     \item Phasenreserve von $\Phi_{RES} = 40 \degree \ldots 70 \degree$
     \item Verstärkungsreserve von $K_{RES} > 4 \, (\approx 12 \, \deci \bel)$
 \end{itemize}
+
+
+\subsection{Nyquistdiagramme mit MatLab}
+
+\lstinputlisting{snippets/nyquist.m}
