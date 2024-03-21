@@ -29,16 +29,16 @@
 
     Ein Regler ist vorteilhaft, um Störungen zu unterdrücken, denn für die Verstärkung der Störung $z$ gilt:
     $$ \lim\limits_{H \to \infty} \frac{K}{1 + K H} \cdot z = 0 $$
-    \textrightarrow Hat der Regler eine grosse Verstärkung $H$, so wird die Störung $z$ unterdrückt\\
-    \textrightarrow Bei einer Steuerung wird die Störung nicht unterdrückt
+    \textrightarrow\ Hat der Regler eine grosse Verstärkung $H$, so wird die Störung $z$ unterdrückt\\
+    \textrightarrow\ Bei einer Steuerung wird die Störung nicht unterdrückt
 
 
 \subsubsection{Sensitivität (Empfindlichkeit)}{106}
 
     Für die Sensitivität eines Reglers gilt:
     $$ \lim\limits_{H \to \infty} \frac{K H}{1 + K H} \cdot r = 1 $$
-    \textrightarrow Hat der Regler eine grosse Verstärkung $H$, so ist $y \approx r$ (Ausgang $\approx$ Sollwert)\\
-    \textrightarrow Bei einer Steuerung muss $H = \frac{1}{L}$ sein, damit $y \approx r$
+    \textrightarrow\ Hat der Regler eine grosse Verstärkung $H$, so ist $y \approx r$ (Ausgang $\approx$ Sollwert)\\
+    \textrightarrow\ Bei einer Steuerung muss $H = \frac{1}{L}$ sein, damit $y \approx r$
 
 
 \subsubsection{Stabilitätsproblem}{109-110}
@@ -83,6 +83,6 @@
     $$ \underbrace{ \cbl{ \frac{K A}{\omega}} \cos \big( \omega t \cor{- \omega T_t - \frac{\pi}{2}}  \big) }_{y(t)}
          = - A \cos(\omega t) = \underbrace{ \cbl{A} \cdot \cos(\omega t \cor{- \pi}) }_{-e(t)} $$
     
-    \textrightarrow Wenn der Regler die Verstärkung $K$ hat ist das System grenzstabil 
+    \textrightarrow\ Wenn der Regler die Verstärkung $K$ hat ist das System grenzstabil 
     und das System schwingt für alle Zeit mit der Frequenz $\omega$\\
-    \textrightarrow Die Verstärkung $K$ muss vermieden werden!
+    \textrightarrow\ Die Verstärkung $K$ muss vermieden werden!
