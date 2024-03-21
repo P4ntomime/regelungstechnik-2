@@ -1,0 +1,42 @@
+\section{Dezibel $\deci \bel$}
+
+
+\subsection{Umrechnung Verstärkungsfaktor -- Dezibel $\deci \bel$}
+
+$$ \boxed{ |K|_{\deci \bel} = 20 \, \deci \bel \cdot \log_{10} |K| \quad \Leftrightarrow \quad 
+            |K| = 10 ^{\big( \frac{|K|_{\deci \bel}}{20 \, \deci \bel}\big)}  } $$
+
+Hinweis: Die Betragsstrichte sind Notation! Es können sehr wohl negative Werte entstehen!
+
+\subsubsection{Rechenregeln}
+
+\begin{itemize}
+    \item Multiplikation \textrightarrow\ Addition
+    \item Division \textrightarrow\ Subtraktion
+    \item Kehrwert \textrightarrow\ Negatives Vorzeichen
+\end{itemize}
+
+
+\subsection{$\deci \bel$--Umrechnungstabelle}
+
+% copy paste from SigSys -> to be updated
+\begin{ctabular}{l l}
+    \toprule
+    \textbf{Dezibel}        & \textbf{Faktor} \\
+    \midrule
+    $20 = 10 + 10$          & $100 = 10 \cdot 10$ \\ 
+    $12$                    & $16 = 2 \cdot 2 \cdot 2 \cdot 2$ \\
+    $\cor{10}$              & $\cor{10}$ \\
+    $9 = 3 + 3 + 3$         & $8 = 2 \cdot 2 \cdot 2$ \\
+    $8 = 5 - 3$             & $6.4 = 3.2 \cdot 2$ \\
+    $7 = 10 -3$             & $5 = \frac{10}{2}$ \\
+    $6 = 3 + 3$             & $4 = 2 \cdot 2$ \\
+    $5 = 15 - 10$           & $3.2 = \frac{32}{10\mathstrut} \approx \sqrt{10}$ \\
+    $4 = 10 - 6 = 10 - 3-3$ & $2.5 = \frac{10\mathstrut}{2 \cdot 2}$ \\
+    $\cor{3}$               & $\cor{2}$ \\
+    $2= 12-10= 5-3$         & $1.6 = \frac{16}{10}$ \\
+    $1 = 10 - 3 - 3 - 3$    & $1.25 = \frac{10}{2\cdot 2 \cdot 2} = \frac{5}{4}$ \\
+    $\cor{0}$               & $\cor{1}$ \\
+    $-1$                    & $0.8 = \frac{4}{5}$ \\
+    \bottomrule
+\end{ctabular}

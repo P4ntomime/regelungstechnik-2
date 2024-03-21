@@ -13,6 +13,7 @@
 \usepackage{enumitem}               % list customization
 \usepackage{outlines}               % easy nested lists
 \usepackage{tabularx}               % some nicer tables with X columns
+\usepackage{booktabs}               % booktabs seplines
 \usepackage{hhline}                 % double lines in tables
 
 
@@ -39,7 +40,13 @@
 
 
 \usepackage{tikz}                   % needed for TikZ drawings
+\usetikzlibrary{angles}             % for the angle pic
+\usetikzlibrary{positioning}        % for the positioning of the nodes
+\usetikzlibrary{arrows}             % for the arrow tip
+\usetikzlibrary{shapes.misc}        % for the cross out node shape
 
+\usepackage{pgfplots}               % needed for  easy axis generation in TikZ drawings
+\pgfplotsset{compat=1.18}	        % newest version
 
 \usepackage{listings}               % for nicer code display
 % to use nodes inside listing see: https://texample.net/tikz/examples/tikz-listings/
@@ -555,6 +562,12 @@
                             \raggedcolumns}
                          }
                          {\end{multicols*}}
+
+
+% new environment for centered tabulars
+\NewDocumentEnvironment{ctabular}{m}
+                       {\center\tabular{#1}}
+                       {\endtabular\endcenter}
 
 
 % ---------------------------------------- LISTINGS SETUP -----------------------------------------
