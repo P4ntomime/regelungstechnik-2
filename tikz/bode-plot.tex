@@ -1,18 +1,18 @@
-%\pgfplotsset{samples=100}   % sample points to make graph smooth
-
 \begin{center}
     % Gain
     \begin{tikzpicture}
         [
-            scale = 1.0,
+            scale = 0.8,
             >=latex
         ]
         \begin{axis}
             [
+                width=12cm,
+                height=4cm,
                 xmode=log,
                 xmin=0.01, xmax=10000, ymin=-60, ymax=20,
                 x label style={anchor=west},
-                xlabel=$\omega$,
+                xlabel=Frequency $\omega$,
                 y label style={anchor=south},
                 ylabel=Gain $\deci \bel$,
                 grid
@@ -28,39 +28,37 @@
         
     \end{tikzpicture}
 
+    \vspace{0.3cm}
+
+
     % Phase
-    % \begin{tikzpicture}
-    %     [
-    %         scale = 0.6,
-    %         >=latex
-    %     ]
-    %     \begin{axis}
-    %         [
-    %             xmin=-0.5, xmax=1.5, ymin=-1.25, ymax=1.5, axis lines=middle,
-    %             x label style={anchor=west},
-    %             xlabel=$x$,
-    %             y label style={anchor=south},
-    %             ylabel=$y$,
-    %             ticks=none
-    %             %grid
-    %         ]
+    \begin{tikzpicture}
+        [
+            scale = 0.8,
+            >=latex
+        ]
+        \begin{axis}
+            [
+                width=12cm,
+                height=4cm,
+                xmode=log,
+                xmin=0.01, xmax=10000, ymin=-180, ymax=180,
+                x label style={anchor=west},
+                xlabel=Frequency $\omega$,
+                y label style={anchor=south},
+                ylabel=Phase $\degree$,
+                ytick={-180, -90, 0, 90, 180},
+                % yticklabels={-180, -90, 0, 90, 180},
+                grid
+            ]
             
-    %         % nodes
-    %         \node[label=below:$x_0$]    (x0)    at (1, 0)       {};
-    %         \node                       (x00)   at (1,1)        {};
-    %         \node[label=below:$x_1$]    (x1)    at (0.5, 0)     {};
-    %         \node                       (x11)   at (0.5, 0.25)  {};
+            % coordinates
+            
+            % draw connections
 
-    %         % plots
-    %         \addplot[color=blue, thick]{x^2};
-    %         \addplot[color=orange, thick]{2*x-1};
-
-    %         %connections
-    %         \draw[dashed] (x0) -- (x00);
-    %         \draw[dashed] (x1) -- (x11);
-           
-    %     \end{axis}
-        
-    % \end{tikzpicture}
-    
+            
+            
+        \end{axis}
+            
+    \end{tikzpicture}
 \end{center}

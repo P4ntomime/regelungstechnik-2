@@ -47,6 +47,7 @@
 
 \usepackage{pgfplots}               % needed for  easy axis generation in TikZ drawings
 \pgfplotsset{compat=1.17}	        % newest version
+\AtBeginEnvironment{tikzpicture}{\tracinglostchars=0\relax}
 
 \usepackage{listings}               % for nicer code display
 % to use nodes inside listing see: https://texample.net/tikz/examples/tikz-listings/
