@@ -216,3 +216,15 @@ $$ \boxed{ T_t = \frac{\Phi_{RES}}{\omega_D}  \quad \text{ wobei } [\Phi_{RES}] 
 \subsection{Nyquistdiagramme mit MatLab}
 
 \lstinputlisting{snippets/nyquist.m}
+
+\subsection{Vorgehen: Nyquistdiagramme zeichnen}
+
+\begin{itemize}
+    \item Werte für $G(\omega = 0)$ und $G(\omega = \infty)$ berechnen
+    \item Anzahl $j$ im Zähler \textbf{plus} Anzahl $j$ im Nenner entspricht Anzahl Quadranten, welche zwischen $\omega = 0$ und 
+        $\omega = \infty$ durchlaufen werden
+    \item Pollstellen: $|G(j \omega)|$ \textdownarrow\ ; $\angle G(j \omega)$ \textdownarrow\ \textrightarrow\ Bewegung im Uhrzeigersinn
+        \textrightarrow\ Bei den Nullstellen ist $\angle G(j \omega) = \pm 45 \, \degree$
+    \item Nullstellen: $|G(j \omega)|$ \textuparrow\ ; $\angle G(j \omega)$ \textuparrow\ ; \textrightarrow\ Bewegung im Gegenuhrzeigersinn
+    \item Frequenzen der Pol- bzw. Nullstellen berechnen
+\end{itemize}
