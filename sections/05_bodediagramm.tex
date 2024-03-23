@@ -66,5 +66,35 @@ Das Diagramm wird approximativ mit \textbf{Geraden} gezeichnet!
 
 \example{Bode-Diagramm zeichnen}
 
+$$ G(j \omega) = \frac{j \omega + 10}{(j \omega + 0.1)} \quad  \underrightarrow{\text{ Standardform }} \quad 
+  G(j \omega) = \cgn{100} \cdot \frac{(\cvt{1 + 0.1 \, j \omega})}{(\cbl{ 1 + 10 \, j \omega})} $$
+
+  \begin{itemize}
+    \item $ \cgn{|K_0|_{\deci \bel} = |100|_{\deci \bel} = 40 \deci \bel}$ \textrightarrow\ $\angle G(100) = 0 \, \degree$ (Auf dieser Höhe starten alle Amplituden)
+    \item Nullstelle: \cvt{$| 1 + 0.1 \, j \omega |_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{0.1 \second} = 10 \frac{\rad}{\second}$
+    \item Polstelle: \cbl{$| 1 + 10 \, j \omega |_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{10 \second} = 0.1 \frac{\rad}{\second}$
+    \item \cor{Endresultat}: Grafische Addition der Teilresultate
+  \end{itemize}
+
 
 \input{tikz/bode-plot.tex}
+
+
+% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
+\subsection{Stabilität im Bodediagramm}
+Analog zum Punkt $-1$ im Nyquistdiagramm kann die Stabilität auch im Bodediagramm beurteilt werden.
+
+\begin{itemize}
+    \item \textbf{Grenzstabilität}: Amplitudengang bei $0 \, \deci \bel$ \textbf{und} Phasengang bei $-180 \, \degree$
+    \item \textbf{Instabilität}: Amplitudengang $>0 \, \deci \bel$
+    \item \textbf{Stabilität}: Amplitudengang $<0 \, \deci \bel$
+\end{itemize}
+
+
+% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
+\subsubsection{Stabilitätsreserven}
+
+\begin{itemize}
+    \item \textbf{Verstärkungsreserve}: $K_{RES}$ entspricht Verstärkung (Amplitude) bei Phase $-180 \, \degree$
+    \item \textbf{Phasensreserve}: $\Phi_{RES}$ entspricht Phase bei Verstärkung (Amplitude) $0 \, \deci \bel$
+\end{itemize}
