@@ -1,0 +1,57 @@
+\section[Dezibel \deci \bel]{Dezibel $\deci \bel$}
+
+
+\subsection[Umrechnung Verstärkungsfaktor -- Dezibel \deci \bel]{Umrechnung Verstärkungsfaktor -- Dezibel $\deci \bel$}
+
+$$ \boxed{ |K|_{\deci \bel} = 20 \, \deci \bel \cdot \log_{10} |K| \quad \Leftrightarrow \quad 
+            |K| = 10 ^{\big( \frac{|K|_{\deci \bel}}{20 \, \deci \bel}\big)}  } $$
+
+\textbf{Hinweis:} Die Betragsstrichte nur Notation! $|K|$ kann sehr wohl negativ sein!
+
+
+\subsubsection{Rechenregeln}
+
+\begin{itemize}
+    \item Multiplikation \textrightarrow\ Addition 
+        \vspace{-0.2cm}
+        $$ | K_1 \cdot K_2 |_{\deci \bel} = | K_1 |_{\deci \bel} + | K_2 |_{\deci \bel} $$
+    \item Division \textrightarrow\ Subtraktion 
+        $$ \Big| \frac{K_1}{K_2} \Big|_{\deci \bel} = | K_1 |_{\deci \bel} - | K_2 |_{\deci \bel} $$
+    \item Kehrwert \textrightarrow\ Negatives Vorzeichen 
+        $$ \Big| \frac{1}{K_1} \Big|_{\deci \bel} = | 1 |_{\deci \bel} - | K_1 |_{\deci \bel} = - | K_1 |_{\deci \bel} $$
+\end{itemize}
+
+
+\subsection[\deci \bel--Umrechnungstabelle]{$\deci \bel$--Umrechnungstabelle}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{ctabular}{c c}
+        \toprule
+        \textbf{Faktor $\boldsymbol{[1]}$}  & \textbf{Dezibel $\boldsymbol{\deci \bel}$} \\
+        \midrule
+        $100$                   & $40$  \\ 
+        $10$                    & $20$  \\
+        $1$                     & $0$   \\
+        $0.1$                   & $-20$ \\
+        $0.01$                  & $-40$ \\
+        \bottomrule
+    \end{ctabular}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{ctabular}{c c}
+        \toprule
+        \textbf{Faktor $\boldsymbol{[1]}$}  & \textbf{Dezibel $\boldsymbol{\deci \bel}$} \\
+        \midrule
+        $2$                     & $6$   \\
+        $\sqrt{2}$              & $3$   \\
+        $\frac{1}{\sqrt{2}}$    & $-3$  \\
+        $\frac{1}{2}$           & $-6$  \\
+        \\
+        \bottomrule
+    \end{ctabular}
+\end{minipage}
+
+
+
+

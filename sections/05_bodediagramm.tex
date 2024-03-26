@@ -1,0 +1,109 @@
+\section{Bode-Diagramm}
+
+Das Bode-Diagramm ist eine weitere Variante, den Frequenzgang $G(j \omega)$ grafisch darzustellen.
+Die Darstellung beinhaltet zwei Graphen.
+
+\begin{itemize}
+    \item Amplitudengang $|G(j \omega)|$ in Dezibel $\deci \bel$
+    \item Phasengang $\angle G(j \omega)$ in Grad $\degree$
+    \item Die Frequenzachse ist \textbf{logarithmisch} mit $\log_{10}(\omega)$
+    \item \textbf{Ein Bodediagramm kann in ein Nyquistdiagramm umgezeichnet werden, aber nicht umgekehrt!}
+\end{itemize}
+
+
+% Bei zu wenig Platz weglassen
+\subsubsection{Logarithmische Frequenzachse}
+
+\begin{itemize}
+    \item Serieschaltung von Systemen
+        $$ G(j \omega) = G_1(j \omega) \cdot G_2(j \omega) $$
+
+    \begin{itemize}
+        \item Amplitudengang
+            $$ |G(j \omega)| = |G_1(j \omega)| \cdot |G_2(j \omega)| $$
+            $$ |G(j \omega)|_{\deci \bel} = |G_1(j \omega)|_{\deci \bel} + |G_2(j \omega)|_{\deci \bel} $$
+            \textrightarrow\ Grafisch multiplizieren wäre schwierig, grafisch addieren geht gut
+    \end{itemize}
+
+    \begin{itemize}
+        \item Amplitudengang
+            $$ \angle G(j \omega) = \angle G_1(j \omega) +  \angle G_2(j \omega) $$
+            \textrightarrow\ Die Phase muss nicht logarithmisch sein, wir haben schon eine Addition 
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Vorgehen: Bode-Diagramm zeichnen}
+
+Das Diagramm wird approximativ mit \textbf{Geraden} gezeichnet!
+
+\begin{itemize}
+    \item Frequenzgang in folgende Form bringen:
+        $$ G(j \omega) = K_0 \cdot (j \omega)^v \cdot \frac{(1 + T_{n0} \cdot j \omega)\cdot (1 + T_{n1} \cdot j \omega) \cdot \ldots}
+        {(1 + T_{p0} \cdot j \omega)\cdot (1 + T_{p1} \cdot j \omega) \cdot \ldots} \cdot e^{- j \omega T_t} $$
+    \begin{itemize}
+        \item Für $\omega = 0$ sind alle $(1 + T \cdot j \omega) = 1 = 0 \, \deci \bel$
+        \item Für $\omega = \frac{1}{T}$ sind alle  $(1 + T \cdot j \omega) = 1 + j = \sqrt{2} \cdot e^{j \frac{\pi}{4}} 
+            = 3 \, \deci \bel \angle 45 \, \degree$
+    \end{itemize}
+    \item Frequenzen der Nullstellen berechnen: $\omega = \frac{1}{T_n}$
+    \item Frequenzen der Polstellen berechnen: $\omega = \frac{1}{T_p}$
+
+
+    \item Jede \textbf{Nullstelle} bewirkt
+    \begin{itemize}
+        \item einen Knick um $+ 20 \deci \bel$ / Dekade \textbf{nach oben} im Amplitudengang
+        \item einen Phasenhub von $+ 90 \, \degree$ über 2 Dekaden \textrightarrow\ $+ 45 \, \degree$ beim Knick
+    \end{itemize}
+    \item Jede \textbf{Polstelle} bewirkt
+    \begin{itemize}
+        \item einen Knick um $- 20 \deci \bel$ / Dekade \textbf{nach unten} im Amplitudengang
+        \item einen Phasenverlust von $- 90 \, \degree$ über 2 Dekaden \textrightarrow\ $- 45 \, \degree$ beim Knick
+    \end{itemize}
+    \item Einzelne Faktoren einzeichnen \textrightarrow\ Wenn Faktor quadriert ist, zwei mal einzeichnen!
+    \item Grafische Addition der Faktoren für gesamten Frequenzgang
+\end{itemize}
+
+
+\example{Bode-Diagramm zeichnen}
+\vspace{-0.2cm}
+$$ G(j \omega) = \frac{j \omega + 10}{(j \omega + 0.1)} \quad  \underrightarrow{\text{ Standardform }} \quad 
+  G(j \omega) = \cgn{100} \cdot \frac{(\cvt{1 + 0.1 \, j \omega})}{(\cbl{ 1 + 10 \, j \omega})} $$
+
+  \begin{itemize}
+    \item $ \cgn{|K_0|_{\deci \bel} = |100|_{\deci \bel} = 40 \, \deci \bel}$ \textrightarrow\ $\angle G(100) = 0 \, \degree$
+    \item Nullstelle: \cvt{$| 1 + 0.1 \, j \omega |_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{0.1 \second} = 10 \frac{\rad}{\second}$
+    \item Polstelle: \cbl{$| 1 + 10 \, j \omega |_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{10 \second} = 0.1 \frac{\rad}{\second}$
+    \item \cor{Endresultat}: Grafische Addition der Teilresultate
+  \end{itemize}
+
+\input{tikz/bode-plot.tex}
+
+
+\subsubsection{Inverse Frequenzgänge}
+
+Das Bodediagramm des inversen Frequenzgangs $\frac{1}{G(j \omega)}$ entspricht dem an der $0 \, \deci \bel$-Achse 
+\textbf{gespiegelten} Bodediagramm des Frequenzgangs $G(j \omega)$ 
+\vspace{0.2cm}
+ 
+\includegraphics[width=\columnwidth]{images/inverse_frequenzgaenge.png}
+
+
+% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
+\subsection{Stabilität im Bodediagramm}
+Analog zum Punkt $-1$ im Nyquistdiagramm kann die Stabilität auch im Bodediagramm beurteilt werden.
+
+\begin{itemize}
+    \item \textbf{Grenzstabilität}: Amplitudengang bei $0 \, \deci \bel$ \textbf{und} Phasengang bei $-180 \, \degree$
+    \item \textbf{Instabilität}: Amplitudengang $>0 \, \deci \bel$
+    \item \textbf{Stabilität}: Amplitudengang $<0 \, \deci \bel$
+\end{itemize}
+
+
+% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
+\subsubsection{Stabilitätsreserven}
+
+\begin{itemize}
+    \item \textbf{Verstärkungsreserve}: $K_{RES}$ entspricht Verstärkung (Amplitude) bei Phase $-180 \, \degree$
+    \item \textbf{Phasensreserve}: $\Phi_{RES}$ entspricht Phase bei Verstärkung (Amplitude) $0 \, \deci \bel$
+\end{itemize}
