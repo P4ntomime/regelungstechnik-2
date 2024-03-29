@@ -12,7 +12,7 @@ Die Darstellung beinhaltet zwei Graphen.
 
 
 % Bei zu wenig Platz weglassen
-\subsubsection{Logarithmische Frequenzachse}
+\subsubsection{Logarithmische Frequenzachse}{134}
 
 \begin{outline}
     \1 Serieschaltung von Systemen
@@ -30,6 +30,7 @@ Die Darstellung beinhaltet zwei Graphen.
 
 
 \subsection{Vorgehen: Bode-Diagramm zeichnen}
+\label{Bodediagramm zeichnen}
 
 Das Diagramm wird approximativ mit \textbf{Geraden} gezeichnet!
 
@@ -45,10 +46,10 @@ Das Diagramm wird approximativ mit \textbf{Geraden} gezeichnet!
 
 
     \1 Jede \textbf{Nullstelle} bewirkt
-        \2 einen Knick um $+ 20 \deci \bel$ / Dekade \textbf{nach oben} im Amplitudengang
+        \2 einen Knick um $+ 20 \, \deci \bel$ / Dekade \textbf{nach oben} im Amplitudengang
         \2 einen Phasenhub von $+ 90 \, \degree$ über 2 Dekaden \textrightarrow\ $+ 45 \, \degree$ beim Knick
     \1 Jede \textbf{Polstelle} bewirkt
-        \2 einen Knick um $- 20 \deci \bel$ / Dekade \textbf{nach unten} im Amplitudengang
+        \2 einen Knick um $- 20 \, \deci \bel$ / Dekade \textbf{nach unten} im Amplitudengang
         \2 einen Phasenverlust von $- 90 \, \degree$ über 2 Dekaden \textrightarrow\ $- 45 \, \degree$ beim Knick
     \1 Einzelne Faktoren einzeichnen \textrightarrow\ Wenn Faktor quadriert ist, zwei mal einzeichnen!
     \1 Grafische Addition der Faktoren für gesamten Frequenzgang
@@ -62,38 +63,113 @@ $$ G(\jimg \omega) = \frac{\jimg \omega + 10}{(\jimg \omega + 0.1)} \quad  \unde
 
   \begin{itemize}
     \item $ \cgn{\abs{K_0}_{\deci \bel} = \abs{100}_{\deci \bel} = 40 \, \deci \bel}$ \textrightarrow\ $\angle G(100) = 0 \, \degree$
-    \item Nullstelle: \cvt{$\abs{1 + 0.1 \, \jimg \omega}_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{0.1 \second} = 10 \frac{\rad}{\second}$
-    \item Polstelle: \cbl{$\abs{1 + 10 \, \jimg \omega}_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{10 \second} = 0.1 \frac{\rad}{\second}$
+    \item Nullstelle: \cvt{$\abs{1 + 0.1 \, \jimg \omega}_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{0.1 \, \second} = 10 \frac{\rad}{\second}$
+    \item Polstelle: \cbl{$\abs{1 + 10 \, \jimg \omega}_{\deci \bel}$} \textrightarrow\ Knick bei $\omega = \frac{1}{10 \, \second} = 0.1 \frac{\rad}{\second}$
     \item \cor{Endresultat}: Grafische Addition der Teilresultate
   \end{itemize}
 
 \input{tikz/bode-plot.tex}
 
 
-\subsubsection{Inverse Frequenzgänge}
+\subsubsection{Inverse Frequenzgänge}{137}
 
-Das Bodediagramm des inversen Frequenzgangs $\frac{1}{G(\jimg \omega)}$ entspricht dem an der $0 \, \deci \bel$-Achse 
-\textbf{gespiegelten} Bodediagramm des Frequenzgangs $G(\jimg \omega)$ 
+Um das Bodediagramm des inversen Frequenzgangs $\frac{1}{G(\jimg \omega)}$ zu erhalten, muss bei Betrag \textbf{und} Phase
+das \textbf{Vorzeichen gedreht} werden.
 \vspace{0.2cm}
  
 \includegraphics[width=\columnwidth]{images/inverse_frequenzgaenge.png}
 
 
-% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
-\subsection{Stabilität im Bodediagramm}
-Analog zum Punkt $-1$ im Nyquistdiagramm kann die Stabilität auch im Bodediagramm beurteilt werden.
+\subsubsection{Lead-Lag-Glied}
+
+$$ \boxed{ \text{Lead-Lag-Glied: } \quad G(s) = K \cdot \frac{s T_1 + 1}{s T_2 + 1} } $$
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{center}
+        \myul{Lead-Glied ($T_1 > T_2$)}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/bode_lead-glied.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{center}
+        \myul{Lag-Glied ($T_2 > T_1$)}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/bode_lag_glied.png}
+\end{minipage}
+
+$$ \boxed{ \text{Maximale Phasenänderung bei:} \quad \omega = \frac{1}{\sqrt{T_1 \cdot T_2}} } $$
+\textrightarrow\ Bei der Regler-Auslegung werden vor allem Lead-Glieder verwendet, um \textbf{Phase anheben} zu können
+
+
+\subsection{Modellbildung (UTF) mittels Frequenzmessung}{139}
+
+Um aus einem gegebenen Bodediagramm die Übertragungsfuntion $G(\jimg \omega)$ zu ermitteln, werden die Zeichenregeln aus Abschnitt
+~\ref{Bodediagramm zeichnen} \textbf{rückwärts angewendet}. Dazu werden die Punkte einer gegebenen Messung mittels Geraden approximiert.
+Mittels dieser Approximationen können die einzelen Komponenten (Faktoren) der gesuchten UTF ermittelt werden.
+
+
+\example{Übertragungsfuntion $G(s)$ aus Bodediagramm ermitteln}
+
+\begin{minipage}[c]{0.5\columnwidth}
+    \includegraphics[width=\columnwidth]{images/bode_zu_modell.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    Aus den Steigungen der Geraden ist ersichtlich, dass folgende Komponenten in $G(s)$ enthalten sein müssen: \\
+    \cor{Verstärkung $K$}, \cgn{$\text{PT}_1$-Glied}, \textcolor{cyan}{$\text{PT}_2$-Glied}
+    $$ G(s) = \cor{K} \cdot \cgn{\frac{1}{(s T_1 + 1)}} \cdot \textcolor{cyan}{\frac{1}{(T_2^2 s^2 + 2 \zeta T_2 s + 1)}} $$
+    Werte der Parameter aus Bodediagramm bestimmen:
+    \begin{itemize}
+        \item \cor{$|K|_{\deci \bel} = 40$ \textrightarrow\ $K = 100$}
+        \item \cgn{$\omega_1 = \frac{1}{T_1} = 0.5$ \textrightarrow\ $T_1 = \frac{1}{0.5} = 2$}
+        \item \textcolor{cyan}{$\omega_2 = \frac{1}{T_2} = 10$ \textrightarrow\ $T_1 = \frac{1}{10} = 0.1$}
+        \item \textcolor{cyan}{$\zeta = 0.1$} \textrightarrow\ gegeben 
+    \end{itemize}
+\end{minipage}
+
+
+
+\subsection{Stabilität im Bodediagramm}{140}
+Analog zum Punkt $-1$ im Nyquistdiagramm kann die Stabilität auch im Bodediagramm beurteilt werden. Auch bei dieser Betrachtung 
+sind die folgenden Frequenzen relevant.
+
+\begin{itemize}
+    \item Durchtrittsfrequenz $\omega_{D}$ \textrightarrow\ Phasenreserve $\Phi_{RES}$ \\
+        Frequenz, bei der die Verstärkung 1 ist: $| G_{0}(\jimg \omega_{D})| = 1 \, (= 0 \, \deci \bel)$
+    \item Phasenschnittfrequenz $\omega_{\pi}$ \textrightarrow\ Verstärkungsreserve $K_{RES}$ \\
+        Frequenz, bei der die Phase $-180 \, \degree$ beträgt: $\angle {G_{0}(\jimg \omega_{\pi})} = - \pi \, \rad \, (= -180 \, \degree)$
+\end{itemize}
+
+
+\subsubsection[Parameter K_{RES} und  \Phi_{RES} aus Bodediagramm lesen]{Parameter $K_{RES}$ und  $\Phi_{RES}$ aus Bodediagramm lesen}
+
+\begin{minipage}[c]{0.55\columnwidth}
+    \includegraphics[width=\columnwidth]{images/bodeplot_stabilitaetsreserven.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.42\columnwidth}
+    \begin{itemize}
+        \item \cgn{Durchtrittsfrequenz $\omega_{D}$}  %\textrightarrow\ Phasenreserve $\Phi_{RES}$
+            $$ K_{RES} = 0 \, \deci \bel - K_{\text{@} 180 \degree } $$ 
+
+        \item \cor{Phasenschnittfrequenz $\omega_{\pi}$} % \textrightarrow\ Verstärkungsreserve $K_{RES}$
+            $$ \Phi_{RES} = \Phi_{\text{@}0 \deci \bel }  + 180 \, \degree $$ 
+    \end{itemize}
+    \crd{\textbf{Achtung:} Das Vorzeichen von $K_{RES}$ bzw. $\Phi_{RES}$ ist essentiell für die Stabilitäts-Beurteilung und
+    darf auf keine Fall vernachlässigt werden!}
+\end{minipage}
+
+
+\subsubsection{Beurteilung der Stabilität des Systems}
+
+Wenn das System die \textbf{Anforderungen des Nyquist-Kriteriums erfüllt}, verhält sich die Stabilität des Systems folgendermassen:
 
 \begin{itemize}
     \item \textbf{Grenzstabilität}: Amplitudengang bei $0 \, \deci \bel$ \textbf{und} Phasengang bei $-180 \, \degree$
-    \item \textbf{Instabilität}: Amplitudengang $>0 \, \deci \bel$
-    \item \textbf{Stabilität}: Amplitudengang $<0 \, \deci \bel$
+    \item \textbf{Instabilität}: Amplitudengang $>0 \, \deci \bel$ % CHECK if this is correct
+    \item \textbf{Stabilität}: Amplitudengang $<0 \, \deci \bel$ % CHECK
+    \item \textbf{Stabilität}: $\omega_{\pi} > \omega_D$  % gemäss Skript
 \end{itemize}
 
 
-% Freestyle by Simi, (noch) nicht in Vorlesung behandelt
-\subsubsection{Stabilitätsreserven}
-
-\begin{itemize}
-    \item \textbf{Verstärkungsreserve}: $K_{RES}$ entspricht Verstärkung (Amplitude) bei Phase $-180 \, \degree$
-    \item \textbf{Phasensreserve}: $\Phi_{RES}$ entspricht Phase bei Verstärkung (Amplitude) $0 \, \deci \bel$
-\end{itemize}
