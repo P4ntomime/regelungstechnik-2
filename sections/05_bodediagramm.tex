@@ -167,8 +167,9 @@ Wenn das System die \textbf{Anforderungen des Nyquist-Kriteriums erfüllt}, verh
 
 \begin{itemize}
     \item \textbf{Grenzstabilität}: Amplitudengang bei $0 \, \deci \bel$ \textbf{und} Phasengang bei $-180 \, \degree$
-    \item \textbf{Instabilität}: Amplitudengang $>0 \, \deci \bel$ % CHECK if this is correct
-    \item \textbf{Stabilität}: Amplitudengang $<0 \, \deci \bel$ % CHECK
+    \item \textbf{Instabilität}:  $K_{RES} < 0$ \textbf{und} $\Phi_{RES} < 0$ (ergibt sich automatisch, wenn einer der 
+        beiden Parameter $< 0$ ist)
+    \item \textbf{Stabilität}: $K_{RES} > 0$ \textbf{und} $\Phi_{RES} > 0$ 
     \item \textbf{Stabilität}: $\omega_{\pi} > \omega_D$  % gemäss Skript
 \end{itemize}
 
@@ -176,3 +177,68 @@ Wenn das System die \textbf{Anforderungen des Nyquist-Kriteriums erfüllt}, verh
 \subsection{Bodediagramme mit Matlab}
 
 \lstinputlisting{snippets/bode.m}
+
+
+\subsection{Alternative Stabilitätskriterien -- Vorzeichenregel}
+
+Die Stabilität kann alternativ 'direkt' au sden Parametern der \textbf{Differentialgleichung} (des
+Frequenzgangs) des \textbf{geschlossenen Regelkreises} bestimmt werden.\\
+Aus der DGL der Form
+$$ \sum\limits_{k=0}^n a_k \cdot y^{(k)}(t) = \sum\limits_{k=0}^m b_k \cdot u^{(k)}(t) $$
+kann das \textbf{charakteristische Polynom} ermittelt werden. Daraus kann dann mittels 
+folgender \textbf{Vorzeichenregel} eine Aussage über die Stabilität des \textbf{geschlossenen Regelkreises} 
+gemacht werden.
+
+\fbox{\parbox{0.95\columnwidth}{
+Eine \textbf{notwendige} Stabilitätsbedingung für das \cbl{charakteristische Polynom}
+$$ \cbl{a_n \lambda^n + a_{n-1} \lambda_{n-1} + \ldots + a_2 \lambda^2  + a_1 \lambda + a_0 } $$
+besteht darin, das alle Koeffizienten existieren $a_0 \ldots a_n$ (also $\neq 0$ sind) \textbf{und dasselbe Vorzeichen} haben. \\
+Bei System erster und zweiter Ordnung ist die Vorzeichenregel auch \textbf{hinreichend} für die Stabilität.
+}}
+
+
+\example{Stabil, instabil oder 'keine Ahnung'}
+
+\begin{minipage}{0.3\columnwidth}
+    \begin{center}
+        \textbf{stabil}
+    \end{center}
+    $$ \frac{1}{\cbl{s^2 + 5s + 7}} $$
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\columnwidth}
+    \begin{center}
+        \textbf{instabil}
+    \end{center}
+    $$ \frac{1}{\cbl{s^2 -7s + 3}} $$
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\columnwidth}
+    \begin{center}
+        \textbf{keine Ahnung}
+    \end{center}
+    $$ \frac{1}{\cbl{s^3 + 2 s^2 + s + 4}} $$
+\end{minipage}
+
+
+\example{Stabilität aus geschlossenem Regelkreises bestimmen}
+
+\begin{minipage}[c]{0.56\columnwidth}
+    \includegraphics[width=\columnwidth]{images/beispiel_regelkreis_vorzeichenkriterium.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.42\columnwidth}
+    \begin{center}
+        UTF geschlossener Regelkreis: 
+    \end{center}
+    $$ \boxed{ T(s) = \frac{Y(s)}{R(s)} = \frac{G_R(s) \cdot G_S(s)}{1 + G_R(s) \cdot G_S(s)} } $$
+\end{minipage}
+
+\vspace{0.2cm}
+$G_R(s)$ und $G_S(s)$ seien gegeben als: $G_R(s) = K_R, \quad  G_S(s) =\frac{K}{s(sT + 1)} = \frac{K}{T s^2 + s} $
+$$ \Rightarrow  T(s) = \frac{G_R(s) \cdot G_S(s)}{1 + G_R(s) \cdot G_S(s)} 
+= \frac{\frac{K_R \cdot K}{T s^2 + s}}{1 + \frac{K_R \cdot K}{T s^2 + s}} 
+= \frac{K_R \cdot K}{\cbl{T s^2 + s + K_R \cdot K}} \text{\textrightarrow\ stabil für } K_R, K, T > 0 $$
+
+
+
