@@ -58,9 +58,9 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 \subsubsection{Umrechnung Parameter Variante 2 -- Variante 3}
 
 \begin{tabular}{c c c c c}
-    $K_R = \tilde{K_R} \Big( 1 + \frac{\tilde{T_V}}{\tilde{T_N}} \Big)$ & &
-    $T_N = \tilde{T_N + \tilde{T_V}}$ & &
-    $T_V = \tilde{T_V} \frac{\tilde{T_N} - \tilde{T_C}}{\tilde{T_N}+ \tilde{T_V}}$ 
+    $K_R = \tilde{K}_R \Big( 1 + \frac{\tilde{T}_V}{\tilde{T}_N} \Big)$ & &
+    $T_N = \tilde{T}_N + \tilde{T}_V$ & &
+    $T_V = \tilde{T}_V \frac{\tilde{T}_N - \tilde{T}_C}{\tilde{T}_N + \tilde{T}_V}$ 
 \end{tabular}
 
 \subsection{Matlab / Simulink}
@@ -115,18 +115,92 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 \subsection{PID-Regler im Bodediagramm}
 
 \textbf{Achtung:} Gemäss den Frequenzgängen der verschiedenen Darstellungsformen aus Abschnitt ~\ref{Strukturen PID-Regler} 
-eines PID-Reglers darf im Bodediagramm \textbf{nur Variante 3 gratisch aus den Einzelteilen addiert} werden. 
+eines PID-Reglers darf im Bodediagramm \textbf{nur Variante 3 grafisch aus den Einzelteilen addiert} werden. 
 
 
 \subsection{Fallstudie: Gleichstromantrieb -- Modellierung}{53}
-
+\begin{center}
+    \includegraphics[width=0.75\columnwidth]{images/vereinfachtes_modell_gleichstromantrieb.png} 
+\end{center}
+Der Gleichstromantrieb kann als $\text{PT}_1$-Glied mit zwei Eingängen $u(t)$ und $M_L(t)$ modelliert werden. $M_L(t)$ entspricht
+einer durch Wirbelströme erzeugte \textbf{Störung}.
+$$ \boxed{ \underbrace{\frac{R \cdot J}{\Psi^2}}_{T} \dot{y}(t) + y(t) = \underbrace{\frac{K_P \cdot K_{\omega}}{\Psi}}_{K_1} u(t)
+    - \underbrace{\frac{R \cdot K_{\omega}}{\Psi^2}}_{K_2} M_L(t) } $$
 
 
 \subsubsection{Parameter-Identifikation}
 
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/gleichstrommodell_parameteridentifikation.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    Aus der \textbf{Sprungantwort} können einige Parameter abgelesen werden. Einige weitere Parameter sind aus Datenblättern bekannt.
+    \includegraphics[width=\columnwidth]{images/gleichstrommodell_parameter.png}
+    $M_{L1} = 4.8 \cdot 10^{-2} \, [\newton \meter]$
+    
+\end{minipage}
 
 
 \subsection{Fallstudie: Gleichstromantrieb mit Steuerung}{148-149}
 
+Die Grösse $\omega$ soll im \textbf{steady-state} gesteuert werden \textrightarrow\ Ableitungen 0, keine Störungen \\
+Zu steuern: $\omega = 25 \cdot 2 \pi$, $K_{\omega} \cdot \omega = y = 3.77 \, \volt$ \textrightarrow\ Finde Wert der Eingangsgrösse $u(t)$
+$$ \boxed{ \text{Im steady-state: } \xcancel{ \underbrace{\frac{R \cdot J}{\Psi^2}}_{T} \dot{y}(t) } + y_{stat}(t) = \underbrace{\frac{K_P \cdot K_{\omega}}{\Psi}}_{K_1} u(t)
+    -  \xcancel{ \underbrace{\frac{R \cdot K_{\omega}}{\Psi^2}}_{K_2} M_L(t) } }$$
+
+$$ y_{stat} = \frac{K_P \cdot K_{\omega}}{\Psi} u_{stat}(t) \qquad  \underrightarrow{y_{stat} = K_{\omega} \cdot \omega } \qquad 
+    \omega_{stat} = \frac{K_p}{\Psi} u_{stat}  $$
+$$ \text{\textrightarrow\ } u_{stat} = \frac{\Psi}{K_P} \omega_{stat}  = \frac{\Psi}{K_P} 25 \cdot 2 \pi = 4.14 \, \volt \quad  $$
+
+
+\subsubsection{Probleme der Steuerung}
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/gleichstromantrieb_steuerung_step-response.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{itemize}
+        \item Endwert wird zwar erreicht, aber wenn $K_P$ oder $\Psi$ variieren wird dies nicht mehr der Fall sein
+        \item Die Drehzahländerung ist 'langsam' (gemäss Zeitkonstante $T$). (Ein höheres $u$ zu Beginn könnte $T$ verkürzen)
+        \item \textbf{Die Steuerung reagiert nicht auf die Störungen!}
+    \end{itemize}
+\end{minipage}
+
 
 \subsection{Fallstudie: Gleichstromantrieb mit P-Regler}{149-150}
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/gleichstromantrieb_p-regler.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    $$ u(t) = K_R \cdot e(t) = K_R \cdot ( r(t) - y(t) )$$
+\end{minipage}
+
+$$ \boxed{ \text{Geschlossener Regelkreis: } \underbrace{\frac{T}{1 + K_1 K_R}}_{T_f} \dot{y}(t) + y(t) = \underbrace{\frac{K_1 K_R}{1 + K_1 K_R}}_{K_f} u(t)
+    - \underbrace{\frac{K_2}{1 + K_1 K_R}}_{K_z} M_L(t) } $$
+
+Damit der Sollwert $r(t)$ erreicht wird (wenn keine Störung $M_L(t)$ vorhanden ist), muss $K_F = 1$ sein
+\textrightarrow\ $K_R$ muss sehr gross sein
+
+
+\subsubsection{Eigenschaften des P-Reglers}
+
+
+\begin{minipage}[c]{0.4\columnwidth}
+    \includegraphics[width=\columnwidth]{images/gleichstromantrieb_p-regler_step-response.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.58\columnwidth}
+    \begin{itemize}
+        \item Für $K_R \to \infty$ werden die Zeitkonstante $T_f$ und der Einfluss der Störung $M_L(t)$ beliebig klein \\
+            \textrightarrow\ DGL konvergiert zu $y(t) = r(t)$
+        \item Für kleine $K_R$ wird Endwert nicht erreicht \\
+            \textrightarrow\ statischer Fehler
+        \item Stellgrösse $u(t)$ sättigt aufgrund von physikalischen Gegebenheiten \textrightarrow\ Prozess wird \textbf{nichtlinear}
+            \textrightarrow\ Überschwinger
+        \item Messrauschen wird ebenfalls verstärkt (P-Regler verstärt \textbf{alle} Frequenzen) 
+    \end{itemize}
+\end{minipage}
