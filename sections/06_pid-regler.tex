@@ -1,7 +1,7 @@
 \section{PID-Regler}
 
 \begin{outline}
-    \1 \textbf{P}: Proportional $K_p \cdot e(t)$
+    \1 \textbf{P}: Proportional $K_P \cdot e(t)$
         \2 Gegenwart: Gewichtung des \textbf{aktuellen} Fehlers $e(t)$
             \3 Stellgrösse $u(t)$ ist abhängig vom aktuell vorhandenen Fehler
             \3 Wie gross Fehler in Vergangenheit war oder in welche Richtung er sich entwickelt, ist irrelevant
@@ -142,7 +142,7 @@ $$ \boxed{ \underbrace{\frac{R \cdot J}{\Psi^2}}_{T} \dot{y}(t) + y(t) = \underb
 \end{minipage}
 
 
-\subsection{Fallstudie: Gleichstromantrieb mit Steuerung}{148-149}
+\subsection{Gleichstromantrieb mit Steuerung}{148-149}
 
 Die Grösse $\omega$ soll im \textbf{steady-state} gesteuert werden \textrightarrow\ Ableitungen 0, keine Störungen \\
 Zu steuern: $\omega = 25 \cdot 2 \pi$, $K_{\omega} \cdot \omega = y = 3.77 \, \volt$ \textrightarrow\ Finde Wert der Eingangsgrösse $u(t)$
@@ -169,7 +169,7 @@ $$ \text{\textrightarrow\ } u_{stat} = \frac{\Psi}{K_P} \omega_{stat}  = \frac{\
 \end{minipage}
 
 
-\subsection{Fallstudie: Gleichstromantrieb mit P-Regler}{149-150}
+\subsection{Gleichstromantrieb mit P-Regler}{149-150}
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/gleichstromantrieb_p-regler.png}
@@ -204,3 +204,21 @@ Damit der Sollwert $r(t)$ erreicht wird (wenn keine Störung $M_L(t)$ vorhanden 
         \item Messrauschen wird ebenfalls verstärkt (P-Regler verstärt \textbf{alle} Frequenzen) 
     \end{itemize}
 \end{minipage}
+
+\textrightarrow\ \textbf{Es bleibt ein stationärer Fehler!} Dafür reagiert der P-Regler schnell.
+
+
+% TODO ab hier
+\subsection{Gleichstromantrieb mit I-Regler}{151-152}
+
+
+\subsection{Gleichstromantrieb mit PI-Regler}{152-154}
+
+
+\subsection{Gleichstromantrieb mit PID-Regler}{155}
+
+
+\subsection{Gleichstromantrieb mit Totzeit mit PI-Regler}{157-159}
+
+
+\subsection{Gleichstromantrieb mit Totzeit mit PID-Regler}{160-162}
