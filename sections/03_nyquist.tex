@@ -63,7 +63,7 @@ Wähle $K = K_0$, sodass sich die Ortskurve immer innerhalb des Einheitskreises 
 
 \subsubsection{Grenzstabilität}
 
-Wähle $K = K_{krit} > K_0$, sodass die Ortskurve den Punkt $-1$ schneidet.
+Wähle $K = K_{\rm krit} > K_0$, sodass die Ortskurve den Punkt $-1$ schneidet.
 \vspace{0.1cm}
 \begin{itemize}
     \item Ortskurve des offenen Regelkreises $G_0(\jimg \omega)$ verläuft \textbf{durch den Punkt $\boldsymbol{-1}$}, 
@@ -76,7 +76,7 @@ Wähle $K = K_{krit} > K_0$, sodass die Ortskurve den Punkt $-1$ schneidet.
 
 \subsubsection{Instabilität}
 
-Wähle $K > K_{krit}$
+Wähle $K > K_{\rm krit}$
 \vspace{0.1cm}
 \begin{itemize}
     \item Ortskurve verläuft nicht mehr durch den Punkt $-1$
@@ -140,8 +140,8 @@ modellierten Prozess oder einer sich ändernden Regelstrecke noch einen stabilen
 \hfill
 \begin{minipage}[c]{0.5\columnwidth}
 
-    $$ \boxed{\Phi_{RES} = \arctan \left( \frac{\Re{G_{0}(\jimg \omega_{D})}}{\Im{G_{0}(\jimg \omega_{D})}} \right) } $$
-    $$ \boxed{\frac{1}{K_{RES}} = \big| G_{0}(\jimg \omega_{\pi}) \big| } $$
+    $$ \boxed{\Phi_{\rm RES} = \arctan \left( \frac{\Re{G_{0}(\jimg \omega_{D})}}{\Im{G_{0}(\jimg \omega_{D})}} \right) } $$
+    $$ \boxed{\frac{1}{K_{\rm RES}} = \big| G_{0}(\jimg \omega_{\pi}) \big| } $$
 
 
      Ein System ist \textbf{stabil}, wenn eine der folgenden Bedingungen erfüllt ist:
@@ -160,26 +160,26 @@ modellierten Prozess oder einer sich ändernden Regelstrecke noch einen stabilen
 \begin{itemize}
     \item Durchtrittsfrequenz $\omega_{D}$ \\
         Frequenz, bei der die Kurve den Einheitskreis durchquert: $| G_{0}(\jimg \omega_{D})| = 1 $ \\
-        \textrightarrow\ Phasenreserve $\Phi_{RES}$
+        \textrightarrow\ Phasenreserve $\Phi_{\rm RES}$
     
     \item Phasenschnittfrequenz $\omega_{\pi}$ \\
         Frequenz, bei der die Kurve die reelle Achse durchquert: $\Im{G_{0}(\jimg \omega_{\pi})} = 0$\\
-        \textrightarrow\ Verstärkungsreserve $K_{RES}$
+        \textrightarrow\ Verstärkungsreserve $K_{\rm RES}$
 \end{itemize}
 
 
-\subsubsection{Verstärkungsreserve $K_{RES}$}
+\subsubsection{Verstärkungsreserve $K_{\rm RES}$}
 
-Die Verstärkungsreserve $K_{RES}$ liefert direkt den Toleranzwert für den Fall, dass die \textbf{Modellunsicherheit} des 
+Die Verstärkungsreserve $K_{\rm RES}$ liefert direkt den Toleranzwert für den Fall, dass die \textbf{Modellunsicherheit} des 
 offenen Regelkreises bei der \textbf{Verstärkung} liegt. \\
-Der Abstand zur Ursprung bei der Phasenschnittfrequenz $\omega_{\pi}$ entspricht $\frac{1}{K_{RES}}$ \\
-\textrightarrow\ Wenn anstatt dem Nominalfrequenzgang $G_0(\jimg \omega)$ tatsächlich $K_{RES} \cdot G_0(\jimg \omega)$ vorliegt, wird der
+Der Abstand zur Ursprung bei der Phasenschnittfrequenz $\omega_{\pi}$ entspricht $\frac{1}{K_{\rm RES}}$ \\
+\textrightarrow\ Wenn anstatt dem Nominalfrequenzgang $G_0(\jimg \omega)$ tatsächlich $K_{\rm RES} \cdot G_0(\jimg \omega)$ vorliegt, wird der
 Regelkreis \textbf{grenzstabil}!
 
 
-\subsubsection{Phasenreserve $\Phi_{RES}$}
+\subsubsection{Phasenreserve $\Phi_{\rm RES}$}
 
-Die Phasenreserve $\Phi_{RES}$ liefert einen Toleranzwert für den Fall, dass die \\
+Die Phasenreserve $\Phi_{\rm RES}$ liefert einen Toleranzwert für den Fall, dass die \\
 \textbf{Modellunsicherheit} des offenen Regelkreises bei der \textbf{Totzeit} liegt.
 
 \textrightarrow\ Wenn anstatt dem Nominalfrequenzgang $G_0(\jimg \omega)$ tatsächlich $G_0(\jimg \omega) \cdot \e^{- \jimg \omega T_t}$ vorliegt, 
@@ -187,7 +187,7 @@ wird der Regelkreis \textbf{grenzstabil}!
 \bigskip
 
 Der Zusammenhang zwischen Phasendrehung und Totzeit ist
-$$ \boxed{ T_t = \frac{\Phi_{RES}}{\omega_D}  \quad \text{ wobei } [\Phi_{RES}] = \rad } $$
+$$ \boxed{ T_t = \frac{\Phi_{\rm RES}}{\omega_D}  \quad \text{ wobei } [\Phi_{\rm RES}] = \rad } $$
 
 
 \example{Einfluss von Stabilitätsreserven auf Nyquistdiagramm}
@@ -206,8 +206,8 @@ $$ \boxed{ T_t = \frac{\Phi_{RES}}{\omega_D}  \quad \text{ wobei } [\Phi_{RES}] 
 \textbf{Hinweis:} Es besteht eine Kopplung zwischen den beiden Effekten!
 
 \begin{itemize}
-    \item Phasenreserve von $\Phi_{RES} = 40 \degree \ldots 70 \degree$
-    \item Verstärkungsreserve von $K_{RES} > 4 \, (\approx 12 \, \deci \bel)$
+    \item Phasenreserve von $\Phi_{\rm RES} = 40 \degree \ldots 70 \degree$
+    \item Verstärkungsreserve von $K_{\rm RES} > 4 \, (\approx 12 \, \deci \bel)$
 \end{itemize}
 
 

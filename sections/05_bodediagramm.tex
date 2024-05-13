@@ -136,14 +136,14 @@ Analog zum Punkt $-1$ im Nyquistdiagramm kann die Stabilität auch im Bodediagra
 sind die folgenden Frequenzen relevant.
 
 \begin{itemize}
-    \item Durchtrittsfrequenz $\omega_{D}$ \textrightarrow\ Phasenreserve $\Phi_{RES}$ \\
+    \item Durchtrittsfrequenz $\omega_{D}$ \textrightarrow\ Phasenreserve $\Phi_{\rm RES}$ \\
         Frequenz, bei der die Verstärkung 1 ist: $| G_{0}(\jimg \omega_{D})| = 1 \, (= 0 \, \deci \bel)$
-    \item Phasenschnittfrequenz $\omega_{\pi}$ \textrightarrow\ Verstärkungsreserve $K_{RES}$ \\
+    \item Phasenschnittfrequenz $\omega_{\pi}$ \textrightarrow\ Verstärkungsreserve $\Phi_{\rm RES}$ \\
         Frequenz, bei der die Phase $-180 \, \degree$ beträgt: $\angle {G_{0}(\jimg \omega_{\pi})} = - \pi \, \rad \, (= -180 \, \degree)$
 \end{itemize}
 
 
-\subsubsection[Parameter K_{RES} und  \Phi_{RES} aus Bodediagramm lesen]{Parameter $K_{RES}$ und  $\Phi_{RES}$ aus Bodediagramm lesen}
+\subsubsection[Parameter \Phi_{\rm RES} und  \Phi_{\rm RES} aus Bodediagramm lesen]{Parameter $\Phi_{\rm RES}$ und  $\Phi_{\rm RES}$ aus Bodediagramm lesen}
 
 \begin{minipage}[c]{0.55\columnwidth}
     \includegraphics[width=\columnwidth]{images/bodeplot_stabilitaetsreserven.png}
@@ -151,13 +151,13 @@ sind die folgenden Frequenzen relevant.
 \hfill
 \begin{minipage}[c]{0.42\columnwidth}
     \begin{itemize}
-        \item \cgn{Durchtrittsfrequenz $\omega_{D}$}  %\textrightarrow\ Phasenreserve $\Phi_{RES}$
-            $$ K_{RES} = 0 \, \deci \bel - K_{\text{@} 180 \degree } $$ 
+        \item \cgn{Durchtrittsfrequenz $\omega_{D}$}  %\textrightarrow\ Phasenreserve $\Phi_{\rm RES}$
+            $$ \Phi_{\rm RES} = 0 \, \deci \bel - K_{\text{@} 180 \degree } $$ 
 
-        \item \cor{Phasenschnittfrequenz $\omega_{\pi}$} % \textrightarrow\ Verstärkungsreserve $K_{RES}$
-            $$ \Phi_{RES} = \Phi_{\text{@}0 \deci \bel }  + 180 \, \degree $$ 
+        \item \cor{Phasenschnittfrequenz $\omega_{\pi}$} % \textrightarrow\ Verstärkungsreserve $\Phi_{\rm RES}$
+            $$ \Phi_{\rm RES} = \Phi_{\text{@}0 \deci \bel }  + 180 \, \degree $$ 
     \end{itemize}
-    \crd{\textbf{Achtung:} Das Vorzeichen von $K_{RES}$ bzw. $\Phi_{RES}$ ist essentiell für die Stabilitäts-Beurteilung und
+    \crd{\textbf{Achtung:} Das Vorzeichen von $\Phi_{\rm RES}$ bzw. $\Phi_{\rm RES}$ ist essentiell für die Stabilitäts-Beurteilung und
     darf auf keine Fall vernachlässigt werden!}
 \end{minipage}
 
@@ -168,9 +168,9 @@ Wenn das System die \textbf{Anforderungen des Nyquist-Kriteriums erfüllt}, verh
 
 \begin{itemize}
     \item \textbf{Grenzstabilität}: Amplitudengang bei $0 \, \deci \bel$ \textbf{und} Phasengang bei $-180 \, \degree$
-    \item \textbf{Instabilität}:  $K_{RES} < 0$ \textbf{und} $\Phi_{RES} < 0$ (ergibt sich automatisch, wenn einer der 
+    \item \textbf{Instabilität}:  $\Phi_{\rm RES} < 0$ \textbf{und} $\Phi_{\rm RES} < 0$ (ergibt sich automatisch, wenn einer der 
         beiden Parameter $< 0$ ist)
-    \item \textbf{Stabilität}: $K_{RES} > 0$ \textbf{und} $\Phi_{RES} > 0$ 
+    \item \textbf{Stabilität}: $\Phi_{\rm RES} > 0$ \textbf{und} $\Phi_{\rm RES} > 0$ 
     \item \textbf{Stabilität}: $\omega_{\pi} > \omega_D$  % gemäss Skript
 \end{itemize}
 
