@@ -23,6 +23,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 
 
 \subsubsection{Varirante 1: Parallelform}
+\label{PID-Regler Parallelform}
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/pid_regler_aufbau.png}
@@ -34,18 +35,19 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 
 
 \subsubsection{Variante 2: Standardform (P-Anteil vorangestellt)}
+\label{PID-Regler Standardform}
 
 \begin{minipage}[c]{0.4\columnwidth}
     \includegraphics[width=\columnwidth]{images/pid_regler_aufbau_standardform.png}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.55\columnwidth}
-    $$ \boxed{ G_{\rm PID}(\jimg \omega) = K_R + \Big( 1 + \frac{1}{\jimg \omega T_N} +\frac{\jimg \omega T_V}{1 + \jimg \omega T_C} \Big) } $$
+    $$ \boxed{ G_{\rm PID}(\jimg \omega) = K_R \cdot \Big( 1 + \frac{1}{\jimg \omega T_N} +\frac{\jimg \omega T_V}{1 + \jimg \omega T_C} \Big) } $$
 \end{minipage}
 
 
 \subsubsection{Variante 3: Serielle (multiplikative) Form}
-\label{PID-Regler multiplikativ}
+\label{PID-Regler multiplikative Form}
 
     \includegraphics[width=0.8\columnwidth]{images/pid_regler_aufbau_serielle_form.png}
     $$ \boxed{ G_{\rm PID}(\jimg \omega) = \tilde{K}_R \cdot \Big( 1 + \frac{1}{\jimg \omega \tilde{T}_N} \Big) \cdot \Big(1 + \frac{\jimg \omega \tilde{T}_V}{1 + \jimg \omega T_C} \Big) } $$
