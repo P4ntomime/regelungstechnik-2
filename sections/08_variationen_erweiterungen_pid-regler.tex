@@ -1,12 +1,102 @@
 \section{Variationen / Erweiterungen zu PID-Reglern}
 
-\subsubsection{Modifizierter PID-Regler in Parallelform}
+\subsection{Modifizierter PID-Regler in Parallelform}
+
+\begin{minipage}[t]{0.4\columnwidth}
+    \begin{center}
+        \textbf{\myul{Parallelform (normal)}}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/pid_regler_aufbau.png}
+
+    \textbf{Hinweis:} $P$-Anteil darf auch nach vorne gezogen werden (wie links) 
+    \textrightarrow\ ändert Parameter von $I$- und $\text{DT}_1$-Gliedern
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.55\columnwidth}
+    \begin{center}
+        \textbf{\myul{Modifizierte Form}}
+    \end{center}
+    \includegraphics[width=\columnwidth]{images/modifizierter_pid_regler.png}
+
+    Statt Fehler $e$ wird Ausgang $y$ auf $\text{DT}_1$-Glied geführt! \\
+    \textrightarrow\ Ableitung des Ausgangs $y$ statt Ableitung des Fehlers $e$
+\end{minipage}
 
 
-% \subsection{Wind-Up}
+\subsubsection{Eigenschaften / Auswirkungen der Modifikation}
+
+\begin{minipage}[t]{0.48\columnwidth}
+    \raggedright
+    \begin{center}
+        \textbf{\myul{Parallelform (normal)}}
+    \end{center}
+
+    \begin{outline}
+        \1 Ändernde Referenz $r(t)$ (z.B. Sprung)
+            \2 $\text{DT}_1$-Glied reagiert sehr aggressiv, da $e(t)$ gross \\
+                \textrightarrow\ 'Überforderung' des Stellglieds
+    \end{outline}
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    \raggedright
+    \begin{center}
+        \textbf{\myul{Modifizierte Form}}
+    \end{center}
+
+    \begin{outline}
+        \1 Ändernde Referenz $r(t)$ (z.B. Sprung)
+            \2 $\text{DT}_1$-Glied reagiert nicht so aggressiv, da $y(t)$ 'träger' als $e(t)$ \\
+                \textrightarrow\  Stellglied 'geschont'
+        \1 'two degrees of freedom'
+            \2 Reaktion auf Störung bzw. auf Änderung der Referenz separat einstellbar
+    \end{outline}
+\end{minipage}
+
+\textbf{Achtung:} Der $\text{DT}_1$-Anteil kann nicht einfach weggelassen werden! 
+
+
+\subsection{Glättung der Referenz}
+
+\begin{minipage}[c]{0.3\columnwidth}
+    \includegraphics[width=\columnwidth]{images/filterung_stellgroesse.png}
+    % \input{tikz/glaettung_stellgroesse.tex} #TODO fix drawing
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.68\columnwidth}
+    Die Stellgrösse $r(t)$ wird geglättet, um die Spitzenbelastung für das Stellglied zu mindern. Die wird erreicht, indem die 
+    Stellgrösse mittels (\cgn{Filter F}) gefiltert wird. \textrightarrow\ Stellglied wird nicht überstrapaziert.
+\end{minipage}
+
 
 
 \subsection{Störgrössenaufschaltung}
 
+\begin{minipage}[c]{0.55\columnwidth}
+    \includegraphics[width=\columnwidth]{images/stoergroessenaufschaltung.png}
+    % \input{tikz/kaskadenregelung.tex} #TODO fix drawing
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.43\columnwidth}
+    Durch Messungen wird versucht, den Einfluss von Störungen $z(t)$ auf die Strecke gleich im Vornherein mittels 
+    \cbl{SGA} zu kompensieren.
+\end{minipage}
+
+\begin{minipage}[t]{0.48\columnwidth}
+    Am \cgn{grünen Knoten} gilt:
+    $$ \dot{y} = K_M K_I [K_P u(t) - Q_a z(t)] $$
+
+    Die Störung soll mittels \textbf{additiver Korrektur}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\columnwidth}
+    
+\end{minipage}
+
 
 \subsection{Kaskadenregelung}
+
+% \input{tikz/kaskadenregelung.tex}
+
+% \subsection{Wind-Up}
