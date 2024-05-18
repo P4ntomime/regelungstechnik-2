@@ -251,4 +251,21 @@ bis das System \textbf{grenzstabil ist} (endlos mit gleicher Amplitude schwingt)
 (siehe Abschnitt~\ref{PID-Regler multiplikative Form}) 
 
 
-\subsection{Regler-Einstellung durch Optimierung}
+\subsection{Regler-Einstellung durch Optimierung}{167}
+
+Im Folgenden ist das Vorgehen zur Regler-Einstellung durch Optimierung beschrieben.
+
+\begin{enumerate}
+    \item Reglerstruktur wählen \\
+        \textrightarrow\ Regler hat Parameter $k_1, \ldots, k_n$, welche optimiert werden sollen
+    \item \textbf{Geschlossenen} Regelkreis (inkl. Strecke) aufbauen (real oder \textbf{Simulation})
+    \item Eingangssignale definieren (Führungsgrösse $r(t)$, Störgrösse $z(t)$), für welche Regelkreis optimiert werden soll
+        (z.B. Sprung, Rampe)
+    \item Gütemass $J$ definieren \textrightarrow\ repräsentative Zahl\\
+        Häufig wird $J(k_1, \ldots, k_n) = \int\limits_0^{T_{\rm end}} (k_e \cdot e^2 +k_u \cdot u^2) \diff t$ gewählt
+    \item Für verschiedene Parametersätze $k_1, \ldots, k_n$ Signale auf Regelkreis geben und Gütemass $J$ berechnen und beurteilen
+        \textrightarrow\ Parameter $k_1, \ldots, k_n$ sind \textbf{optimal}, wenn Gütemass $J$ \textbf{minimal} ist
+\end{enumerate}
+
+\textbf{Achtung:} $T_{\rm end}$ sollte minestens so gross sein, dass der Regelkreis bei vernünftiger Reglereinstellung als
+eingeschwungen gilt (steady-state).
