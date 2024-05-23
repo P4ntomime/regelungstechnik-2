@@ -105,6 +105,9 @@ Der Regler wird dann so entworfen, dass er die \textbf{invertierte Stecke} enth�
     G_0(s) &= G_R(s) \cdot G_S(s) \frac{K_R}{s} G_s^{-1}(s) \cdot G_S(s) = \frac{K_R}{s} \text{ \textrightarrow\ Integrator} \\
     G_f(s) &= \frac{G_0(s)}{1 + G_0(s)} = \frac{1}{\frac{1}{K_R} s + 1} \text{ \textrightarrow\ PT}_1 \text{-System} 
 \end{align*}
+
+\textbf{Hinweis:} Wähle als Reglerstruktur die Standardform (Variante 2) \textrightarrow\ siehe Abschnitt~\ref{PID-Regler Standardform}
+\vspace{0.2cm}
 Für die Übertragungsfunktionen gelten die folgenden Bezeichnungen:
 
 \begin{minipage}[t]{0.48\columnwidth}
@@ -181,7 +184,7 @@ Gut regelbar heisst, die Zeitkonstante des geschlossenen Regelkreises ist kleine
 \vspace{0.1cm}
 
 \textbf{ACHTUNG: Struktur der Regler beachten!} Die Tabelle liefert Parameter für Regler in \textbf{serieller Form}
-(siehe Abschnitt~\ref{PID-Regler multiplikativ}) 
+(siehe Abschnitt~\ref{PID-Regler multiplikative Form}) 
 
 \begin{tabular}{c c c }
     $ \boxed{ G_{\rm PID}(s) = K_R \cdot \Bigg( 1 + \frac{1}{s \cdot T_N} + s \cdot T_V \Bigg) }$ & 
@@ -244,8 +247,25 @@ bis das System \textbf{grenzstabil ist} (endlos mit gleicher Amplitude schwingt)
     \end{outline}
 \end{minipage}
 
-% TODO: Frage: Welche Topologie haben Regler? 
+\textbf{ACHTUNG: Struktur der Regler beachten!} Die Tabelle liefert Parameter für Regler in \textbf{serieller Form}
+(siehe Abschnitt~\ref{PID-Regler multiplikative Form}) 
 
 
+\subsection{Regler-Einstellung durch Optimierung}{167}
 
-% \subsection{Regler-Einstellung durch Optimierung}
+Im Folgenden ist das Vorgehen zur Regler-Einstellung durch Optimierung beschrieben.
+
+\begin{enumerate}
+    \item Reglerstruktur wählen \\
+        \textrightarrow\ Regler hat Parameter $k_1, \ldots, k_n$, welche optimiert werden sollen
+    \item \textbf{Geschlossenen} Regelkreis (inkl. Strecke) aufbauen (real oder \textbf{Simulation})
+    \item Eingangssignale definieren (Führungsgrösse $r(t)$, Störgrösse $z(t)$), für welche Regelkreis optimiert werden soll
+        (z.B. Sprung, Rampe)
+    \item Gütemass $J$ definieren \textrightarrow\ repräsentative Zahl\\
+        Häufig wird $J(k_1, \ldots, k_n) = \int\limits_0^{T_{\rm end}} (k_e \cdot e^2 +k_u \cdot u^2) \diff t$ gewählt
+    \item Für verschiedene Parametersätze $k_1, \ldots, k_n$ Signale auf Regelkreis geben und Gütemass $J$ berechnen und beurteilen
+        \textrightarrow\ Parameter $k_1, \ldots, k_n$ sind \textbf{optimal}, wenn Gütemass $J$ \textbf{minimal} ist
+\end{enumerate}
+
+\textbf{Achtung:} $T_{\rm end}$ sollte minestens so gross sein, dass der Regelkreis bei vernünftiger Reglereinstellung als
+eingeschwungen gilt (steady-state).

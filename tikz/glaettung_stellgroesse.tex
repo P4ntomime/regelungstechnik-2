@@ -1,0 +1,31 @@
+\begin{center}
+    \scalebox{0.4}{
+    \begin{tikzpicture}
+        [
+            scale = 1,
+            >=latex,
+            orangebox/.style={rectangle, draw=black, fill=orange, thick, minimum width=1cm, minimum height=0.5cm},
+            greenbox/.style={rectangle, draw=black, fill=green, thick, minimum width=1cm, minimum height=0.5cm},
+            yellowbox/.style={rectangle, draw=black, fill=yellow, thick, minimum width=1cm, minimum height=0.5cm},
+            whitecircle/.style={circle, draw=black, fill=white, thick, inner sep=0pt,minimum size=0.3cm},
+        ]
+
+        % nodes
+        \node               (R)                                     {$r(t)$};
+        \node[greenbox]     (F)       [right= of R]                 {F};
+        \node[whitecircle]  (A)       [right= of F]                 {};
+        \node[orangebox]    (C)       [right= of A]                 {C};   
+        \node[yellowbox]    (G)       [right= of C]                 {G};
+        \node[yellowbox]    (H)       [below left= of G]            {H};
+        \node               (U)       [right= of G]                 {$u(t)$};
+
+        % arrows
+        \draw[->, thick]    (R)         to (F.west);
+        \draw[->, thick]    (F.east)    to (A.west);
+        \draw[->, thick]    (A.east)    to (C.west);
+        \draw[->, thick]    (C.east)    to (G.west);
+        \draw[->, thick]    (G.east) -> node {} coordinate(U-G) (U);
+        \draw[->, thick]    (U-G)       to (H.east);
+        \draw[->, thick]    (H.west)    to (A.south);        
+    \end{tikzpicture}}
+\end{center}
