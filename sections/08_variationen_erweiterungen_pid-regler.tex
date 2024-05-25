@@ -177,4 +177,89 @@ ist der innere Regelkreis aus sicht des äusseren Regelkreises gar nicht vorhand
 \end{minipage}
 
 
-% \subsection{Wind-Up}
+\subsection{Wind-Up (Integratoren)}{172}
+
+Das Wind-Up Problem tritt auf, die folgenden drei Voraussetungen erfüllt sind
+
+\begin{itemize}
+    \item Der Regler enthält einen \textbf{I-Anteil}
+    \item Der Regelkreis enthält eine Limitierung bzw. \textbf{Sättigung} (Stellglied, Sensor, Physik)
+    \item Das \textbf{Reglersignal} läuft in die \textbf{Sättigung}
+\end{itemize}
+
+\vspace{0.2cm}
+Solange der Regelkreis in Sättigung ist
+
+\begin{itemize}
+    \item Ausgang der Sättigung ist \textbf{konstant} (und somit auch der Fehler $e(t)$)
+    \item Regelkreis verhält sich, als ob der Regelkreis an der Stelle der Sättigung geöffnet wurde
+    \item Intergrator im Regelkreis wird zum offenen Integrator und \textbf{'läuft davon'}, da ein konstanter Fehler $e(t)$ ungebremst
+        integriert wird \textrightarrow\ Wind-Up
+\end{itemize}
+
+\vspace{0.2cm}
+Sobald der Wert der Stellgrösse $r(t)$ ändert und der Fehler $e(t)$ umgekehrtes Vorzeichen bekommt, muss erst einmal einige Zeit
+abintegriert werden, bis der Regler auf die Änderung der Stellgrösse reagiert. \textrightarrow\ siehe Beispiel
+
+
+\example{Wind-Up mit PI-Regler}
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/windup_beispiel.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{itemize}
+        \item PI-Regler (so dimensioniert, dass $G_0$ nur noch I-Verhalten hat) \\
+            \textrightarrow\ $G_f$ hat $\text{PT}_1$-Verhalten
+        \item Sättigungsblock: Sättigung bei $\pm 1$
+        \item Stellgrösse $r(t) = 1$ (keine Sättigung)
+        \item Stellgrösse $r(t) = 1.2$ (Sättigung)
+    \end{itemize}
+\end{minipage}
+
+\vspace{0.2cm}
+\begin{minipage}[c]{0.4\columnwidth}
+    \begin{center}
+        \myul{Keine Sättigung (kein Wind-Up)}
+    \end{center}
+    \vspace{-0.2cm}
+    \includegraphics[width=\columnwidth]{images/windup_beispiel_plot_normal.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.4\columnwidth}
+    \begin{center}
+        \myul{Sättigung (Wind-Up)}
+    \end{center}
+    \vspace{-0.2cm}
+    \includegraphics[width=\columnwidth]{images/windup_beispiel_plot_windup_effekt.png}
+\end{minipage}
+
+
+\subsubsection{Anti-Wind-Up-Ansätze}
+
+\textbf{Hinweis:} Die beschriebenen Methoden sind nicht mathematisch, sondern werden durch Simulationen / Ausprobieren umgesetzt.
+
+\begin{itemize}
+    \item Wind-Up detektieren und Integrator nach Wind-Up auf \textbf{sinnvollen Wert} setzen
+    \item Integrator begrenzen (z.B. auf $80 \, \%$ der möglichen Stellgrösse) \textrightarrow\ nie 'vollgas'
+    \item Bedingte Integration (Clamping): Integration stoppen (z.B. wenn Aktor am Limit ist)
+\end{itemize}
+
+
+\begin{minipage}[c]{0.48\columnwidth}
+    \includegraphics[width=\columnwidth]{images/anti-wind-up.png}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.48\columnwidth}
+    \begin{itemize}
+        \item Feedback-Mechanismus\\
+            (\textbf{Back-Calculation})
+    \end{itemize}
+    \vspace{0.2cm}
+
+    \textrightarrow\ Muss richtig dimensioniert sein! \\
+    \textrightarrow\ PI-Regler: Wähle $T_a \approx T_N$
+\end{minipage}
+
+\textbf{Achtung: Es braucht immer ein Anti-Wind-Up}, ansonsten läuft der Prozess schlecht oder geht sogar kaputt.
