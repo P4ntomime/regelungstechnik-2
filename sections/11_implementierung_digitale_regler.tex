@@ -15,8 +15,35 @@
 
 \subsection{Vorgehen: Diskretisierung eines Reglers}
 
+\begin{outline}
+    \1 Übertragungsfunktion des Reglers in $\jimg \omega$ aufstellen: $G_R(\jimg \omega) = ...$
+    \1 Wahl der Abtastzeit $T_S$ und einer Diskretisierungsmethode
+        \2 (typischerweise Tustin, weil am genausten)
+    \1 Substitution aller $\jimg \omega$ in der UTF durch Approximation in $z^{-1}$ \textrightarrow\ $G_{R, \, \rm diskret}(z) = ...$
+        \2 Tustin: $\jimg \omega = \frac{2}{T} \frac{1 - z^{-1}}{1 + z^{-1}}$
+    \1 Umformen, damit Doppelbrüche verschwinden
+    \1 Ansatz: $G_{R, \, \rm diskret}(z) = \frac{U(z)}{E(z)}$ sortieren nach $U(z)$ und $E(z)$
+    \1 Differenzengleichung durch inverse Z-Transformation bestimmen
+\end{outline}
+
 
 \example{PI-Regler diskretisieren}
+
+Gegeben sei die Übertragungsfunktion $G_R(\jimg \omega)$ eines \textbf{kontinuierlichen} Reglers.
+Daraus soll die zu implementierende \textbf{Differenzengleichung} ermittelt werden.
+
+$$ G_R(\jimg \omega) = K_R \cdot \frac{1 + T_N \jimg \omega}{T_N \jimg \omega} $$
+$$ G_{R, \, \rm diskret}(z) = K_R \cdot \frac{1 + T_N \frac{2}{T} \frac{1- z^{-1}}{1 + z^{-1}}}{T_N \frac{2}{T} \frac{1- z^{-1}}{1 + z^{-1}}} 
+    = K_R \cdot \frac{T (1 + z^{-1}) + 2 T_N (1 - z^{-1})}{2 T_N (1- z^{-1})} = \frac{U(z)}{E(z)} $$
+$$ U(z) (1 - z^{-1}) = \frac{K_R}{2 T_N} \cdot E(z) \Big( T (1 + z^{-1}) + 2 T_N (1 - z^{-1}) \Big) $$
+$$ u(k) - u(k-1) = \frac{K_R}{2 T_N} \Big[ T \cdot e(k) + T \cdot e(k-1) + 2 T_N \cdot e(k) - 2 T_N \cdot e(k-1) \Big] $$
+$$ u(k) = u(k-1) + \frac{K_R}{2 T_N} \Big[ e(k) \cdot \big( T + 2 T_N  \big) +  e(k-1) \cdot \big( T - 2 T_N  \big)  \Big]  $$
+
+
+\subsubsection{Z-Transformation mit Matlab}
+
+\lstinputlisting{snippets/z_transformation.m}
+
 
 
 \subsubsection{Optimierung des Speicherplatzes}
