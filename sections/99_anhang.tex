@@ -4,16 +4,19 @@
 \label{Bodediagramm eines Integrators}
 
 Ein Integrator mit $G(s) = \frac{K}{s}$ hat seine Polstelle bei der Frequenz $\omega = 0$. Im Bodediagramm wird der Integrator so
+dargestellt, dass bei Frequenz $\omega = 1$ die Verstärkung $20 \, \deci \bel \cdot \log_{10}(K)$ erreicht ist. 
+Die Steigung beträgt $-20 \, \deci \bel / \mathrm{Dek}$ und die Phase ist konstant bei $\varphi = -\frac{\pi}{2}$
+
+\input{tikz/bode-plot_integrator.tex} 
+
+
+\subsection{Bodediagramm eines Differenzierer}
+
+Ein Differenzierer mit $G(s) = K \cdot s$ hat eine Nullstelle bei der Frequenz $\omega = 0$. Im Bodediagramm wird der Differenzierer so
 dargestellt, dass bei Frequenz $\omega = 1$ die Verstärkung $20 \, \deci \bel \cdot \log_{10}(K)$ erreicht ist.
+Die Steigung beträgt $20 \, \deci \bel / \mathrm{Dek}$ und die Phase ist konstant bei $\varphi = \frac{\pi}{2}$
 
-\input{tikz/bode-plot_integrator.tex} % Bei bedarf kleiner skalieren
-
-
-\subsection[Bodediagramm mit Nullstelle bei omega = 0]{Bodediagramm mit Nullstelle bei $\omega = 0$}
-
-Ein System mit $G(s) = K \cdot s$ wird im Bodediagramm so dargestellt, dass bei bei Frequenz $\omega = 0$ die Verstärkung
-$20 \, \deci \bel \cdot \log_{10}(K)$ erreicht ist. Im Gegensatz zu Abschnitt ~\ref{Bodediagramm eines Integrators} beträgt die Steigung
-der Amplitude $+20 \, \deci \bel / \mathrm{Dek}$ und die Phase ist konstant bei $\varphi = \frac{\pi}{2}$
+\input{tikz/bode-plot_differenzierer.tex} 
 
 
 \subsection{z-Transformation}
@@ -21,6 +24,35 @@ der Amplitude $+20 \, \deci \bel / \mathrm{Dek}$ und die Phase ist konstant bei 
 
 Die z-Transformation wird verwendet, um \textbf{diskrete} Signale in den Frequenzbereich zu transformieren.
 
+\renewcommand{\arraystretch}{1.4}
+
+\begin{center}
+    \begin{tabular}{c | c}
+        \textbf{Zeitbereich}    & \textbf{Frequenzbereich}  \\
+        \midrule
+        $u(k)$                  & $U(z)$                    \\
+        $u(k-1)$                & $z^{-1} \cdot U(z) = \frac{1}{z} \cdot U(z)$ \\
+        $u(k+1)$                & $z \cdot U(z)$
+    \end{tabular}
+\end{center}
 
 
-% TODO: THEORIE Z-Transformation
+\subsubsection{Z-Transformation mit Matlab}
+
+\lstinputlisting{snippets/z_transformation.m}
+
+
+\subsection{Fourier- bzw. Laplace-Transformation}
+
+Die Fourier- und die Laplace-Transformation werden verwendet, um \textbf{kontinuierliche} Signale ein den Frequenzbereich zu transformieren.
+
+\begin{center}
+    \begin{tabular}{c |c | c}
+        \textbf{Zeitbereich}            & \textbf{Frequenzbereich (Fourier)}                & \textbf{Frequenzbereich (Laplace)}    \\
+        \midrule
+        $u(t)$                          & $U(\jimg \omega)$                                 & $U(s)$                                \\
+        $\int u(\tau) \, \diff \tau$    & $\frac{1}{\jimg \omega} \cdot U(\jimg \omega)$    & $\frac{1}{s} \cdot U(s)$              \\
+        $\frac{\diff}{\diff u(t)}$      & $\jimg \omega \cdot U(\jimg \omega)$              & $s \cdot U(s)$
+    \end{tabular}
+\end{center}
+\renewcommand{\arraystretch}{1}
