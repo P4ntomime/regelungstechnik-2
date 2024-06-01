@@ -9,7 +9,7 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 \end{itemize}
 
 
-\subsection{Aufbau digitaler Regelkreis}
+\subsection{Aufbau digitaler Regelkreis}{183}
 
 \begin{minipage}[c]{0.63\columnwidth}
     \includegraphics[width=\columnwidth]{images/regelkreis_mit_digitalregler.png}
@@ -23,7 +23,7 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 \end{minipage}
 
 
-\subsubsection{Signale im digitalen Regelkreis}
+\subsubsection{Signale im digitalen Regelkreis}{184}
 
 \begin{center}
     \includegraphics[width=0.75\columnwidth]{images/digitaler_regelkreis_signaltypen.png}
@@ -37,7 +37,7 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 \end{outline}
 
 
-\subsubsection{Quantisierung}
+\subsubsection{Quantisierung}{185}
 
  Das Signal eines ditialen Reglers ist sowohl \textbf{zeitdiskret} als auch \textbf{wertdiskret}.
  \vspace{0.2cm}
@@ -70,7 +70,7 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 \end{minipage}
 
 
-\subsection{Entwurfsverfahren}
+\subsection{Entwurfsverfahren}{186}
 
 \begin{minipage}[c]{0.45\columnwidth}
     \includegraphics[width=\columnwidth]{images/direkter_indirekter_reglerentwurf_digital.png}  
@@ -89,7 +89,7 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 \textbf{Hinweis:} Normalerweise sind die resultierenden Regler nicht identisch: $G_{R,I}(z) \neq G_{R,D}(z)$
 
 
-\subsection{Diskretisierung eines Reglers}
+\subsection{Diskretisierung eines Reglers}{188}
 
 Ein kontinuierlicher Regler (hier I-Regler) weist folgendes Verhalten auf:
 $$ u(t) = K_R \cdot \int\limits_0^t e(\tau) \, \diff \tau $$
@@ -151,12 +151,12 @@ $$ u(k) - u(k-1) = \frac{K_R}{2 T_N} \Big[ T \cdot e(k) + T \cdot e(k-1) + 2 T_N
 $$ u(k) = u(k-1) + \frac{K_R}{2 T_N} \Big[ e(k) \cdot \big( T + 2 T_N  \big) +  e(k-1) \cdot \big( T - 2 T_N  \big)  \Big]  $$
 
 
-\subsection{Code-Implementierung eines diskreten Reglers}
+\subsection{Code-Implementierung eines diskreten Reglers}{190}
 
 \lstinputlisting{snippets/digitale_regler.m}
 
 
-\subsubsection{Optimierung des Speicherplatzes}
+\subsubsection{Optimierung des Speicherplatzes}{189}
 
 \begin{minipage}[c]{0.48\columnwidth}
      \includegraphics[width=\columnwidth]{images/optimierung_speicherplatz.png}
