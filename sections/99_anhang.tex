@@ -24,15 +24,17 @@ Die Steigung beträgt $20 \, \deci \bel / \mathrm{Dek}$ und die Phase ist konsta
 
 Die z-Transformation wird verwendet, um \textbf{diskrete} Signale in den Frequenzbereich zu transformieren.
 
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{1}
 
 \begin{center}
-    \begin{tabular}{c | c}
+    \begin{tabular}{c c}
+        \toprule
         \textbf{Zeitbereich}    & \textbf{Frequenzbereich}  \\
-        \midrule
-        $u(k)$                  & $U(z)$                    \\
-        $u(k-1)$                & $z^{-1} \cdot U(z) = \frac{1}{z} \cdot U(z)$ \\
-        $u(k+1)$                & $z \cdot U(z)$
+        \toprule
+        \strut$u(k)$                  & $U(z)$                    \\
+        \strut$u(k-1)$                & $z^{-1} \cdot U(z) = \frac{1}{z} \cdot U(z)$ \\
+        \strut$u(k+1)$                & $z \cdot U(z)$\\
+        \bottomrule
     \end{tabular}
 \end{center}
 
@@ -47,12 +49,15 @@ Die z-Transformation wird verwendet, um \textbf{diskrete} Signale in den Frequen
 Die Fourier- und die Laplace-Transformation werden verwendet, um \textbf{kontinuierliche} Signale ein den Frequenzbereich zu transformieren.
 
 \begin{center}
-    \begin{tabular}{c |c | c}
+    \begin{tabular}{c c c}
+        \toprule
         \textbf{Zeitbereich}            & \textbf{Frequenzbereich (Fourier)}                & \textbf{Frequenzbereich (Laplace)}    \\
-        \midrule
-        $u(t)$                          & $U(\jimg \omega)$                                 & $U(s)$                                \\
-        $\int u(\tau) \, \diff \tau$    & $\frac{1}{\jimg \omega} \cdot U(\jimg \omega)$    & $\frac{1}{s} \cdot U(s)$              \\
-        $\frac{\diff}{\diff u(t)}$      & $\jimg \omega \cdot U(\jimg \omega)$              & $s \cdot U(s)$
+        \toprule
+        \strut$u(t)$                          & $U(\jimg \omega)$                                 & $U(s)$                                \\
+        \strut$\int u(\tau) \, \diff \tau$    & $\frac{1}{\jimg \omega} \cdot U(\jimg \omega)$    & $\frac{1}{s} \cdot U(s)$              \\
+        \strut$\frac{\diff}{\diff u(t)}$      & $\jimg \omega \cdot U(\jimg \omega)$              & $s \cdot U(s)$\\
+        \bottomrule
     \end{tabular}
 \end{center}
 \renewcommand{\arraystretch}{1}
+
