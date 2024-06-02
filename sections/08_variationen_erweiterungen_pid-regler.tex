@@ -59,12 +59,12 @@
 
 \subsection{Glättung der Referenz}{171}
 
-\begin{minipage}[c]{0.3\columnwidth}
-    \includegraphics[width=\columnwidth]{images/filterung_stellgroesse.png}
-    % \input{tikz/glaettung_stellgroesse.tex} #TODO fix drawing
+\begin{minipage}[c]{0.38\columnwidth}
+    % \includegraphics[width=\columnwidth]{images/filterung_stellgroesse.png}
+    \input{tikz/glaettung_stellgroesse.tex} 
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.68\columnwidth}
+\begin{minipage}[c]{0.6\columnwidth}
     Die Stellgrösse $r(t)$ wird geglättet, um die Spitzenbelastung für das Stellglied zu mindern. Die wird erreicht, indem die 
     Stellgrösse mittels (\cgn{Filter F}) gefiltert wird. \textrightarrow\ Stellglied wird nicht überstrapaziert.
 \end{minipage}
@@ -74,7 +74,6 @@
 
 \begin{minipage}[c]{0.55\columnwidth}
     \includegraphics[width=\columnwidth]{images/stoergroessenaufschaltung.png}
-    % \input{tikz/kaskadenregelung.tex} #TODO fix drawing
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.43\columnwidth}
@@ -120,16 +119,17 @@ Bei Strecken höherer Ordnung liefert dieses Vorgehen keine genügenden Resultat
 
 \subsection{Übertragungsfunktionen Kaskadenregelung}
 
-\begin{minipage}[c]{0.48\columnwidth}
-    \includegraphics[width=\columnwidth]{images/kaskadenregelung_struktur.png}
+\begin{minipage}[c]{0.56\columnwidth}
+    % \includegraphics[width=\columnwidth]{images/kaskadenregelung_struktur.png}
+    \input{tikz/kaskadenregelung.tex}
     $$ \text{Annahme - Ideale Sensoren: } H_1 = H_2 = 1$$
-    % \input{tikz/kaskadenregelung.tex}
+    
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.48\columnwidth}
-    Übertragungsfunktion innerer Regelkreis
+\begin{minipage}[c]{0.43\columnwidth}
+    UTF innerer Regelkreis
     $$ G_{f1} = \frac{G_1 G_2}{1 + G_1 G_2} $$
-    Übertragungsfunktion äusserer Regelkreis
+    UTF äusserer Regelkreis
     $$ \textstyle{ G_{f2} = \frac{G_2 G_{f1} C_1}{1 + G_2 G_{f1} C_1} = \frac{G_2 G_1 C_2 C_1}{1 + G_1 C_2 + G_2 G_1 C_2 C_2}} $$
 \end{minipage}
 
@@ -151,7 +151,7 @@ ist der innere Regelkreis aus sicht des äusseren Regelkreises gar nicht vorhand
         \2 Innere Regelkreis erscheint somit für äusseren Regelkreis nur als eine \textbf{Konstante}
     \1 Der innere Regelkreis wird \textbf{zuerst} ausgelegt
         \2 Dynamik der inneren Regelstrecke verbessern (schneller machen)
-        \2 Allenfalls ist eine gute Störunterdrückung wichtig ($G_z$ optimieren) % CHECK was ist mit ($G_z$ optimieren) gemeint?
+        \2 Allenfalls ist eine gute Störunterdrückung wichtig ($G_z(s) = \frac{Z(s)}{Y_{\rm sub}(s)}$ optimieren)
     \1 Beide Regelkreise können mit \textbf{Einstellregeln} eingestellt werden
         \2 Innerer Regelkreis: Äusseren Regelkreis als offen ('nicht da') betrachten
         \2 Äusserer Regelkreis: Innerer Regelkreis muss geschlossen sein (und funktionieren)
@@ -263,3 +263,4 @@ abintegriert werden, bis der Regler auf die Änderung der Stellgrösse reagiert.
 \end{minipage}
 
 \textbf{Achtung: Es braucht immer ein Anti-Wind-Up}, ansonsten läuft der Prozess schlecht oder geht sogar kaputt.
+

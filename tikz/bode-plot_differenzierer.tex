@@ -24,9 +24,8 @@
                 ymajorgrids=true,
                 yminorgrids=false
             ]
-
             % Plot
-            \addplot[thick, color=blue, domain=0.01:100]{-20*log10(x)+20};
+            \addplot[thick, color=blue, domain=0.01:100]{+20*log10(x)+20};
             
             % guide lines
             \addplot[dashed, color=black, domain=0.01:100]{20}; 
@@ -34,7 +33,7 @@
            
             % Node / Label
             \node[inner sep=0pt] (p) at (1, 20) {};
-            \node[fill=white, inner sep=1pt] (q) at (5, 40) {$20 \, \deci \bel \cdot \log_{10}(K)$};
+            \node[fill=white, inner sep=1pt] (q) at (5, 0) {$20 \, \deci \bel \cdot \log_{10}(K)$};
 
             \draw[->, thick, color=black] (q) -- (p);
         \end{axis}
@@ -68,7 +67,7 @@
             ]
             
             % Phase
-            \addplot[thick, color=blue, domain=0.01:100]{-90};
+            \addplot[thick, color=blue, domain=0.01:100]{90};
         \end{axis}
     \end{tikzpicture}
 \end{center}

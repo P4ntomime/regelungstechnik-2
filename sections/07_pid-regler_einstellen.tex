@@ -5,7 +5,7 @@
 
 \begin{minipage}[c]{0.43\columnwidth}
     Regler-Entwuft ist \textbf{iterativer Prozess!}
-    \includegraphics[width=\columnwidth]{images/reglerentwurf_moegliche_schritte.png}
+    \includegraphics[width=\columnwidth]{images/reglerentwurf_moegliche_schritte.pdf}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.56\columnwidth}
@@ -193,10 +193,10 @@ Gut regelbar heisst, die Zeitkonstante des geschlossenen Regelkreises ist kleine
 \end{tabular}
 
 \begin{center}
-    \begin{tabular}{|c | c | c | c | c|}
+    \begin{tabular}{c c c c c}
         \toprule
         Regler      & Methode       & $K_R$             & $T_N$                 & $T_V$             \\
-        \midrule
+        \toprule
                     & ZN            & $1.0 \cdot q$     & $-$                   & $-$               \\
         P-Regler    & CHR (20 \%)   & $0.7 \cdot q$     & $-$                   & $-$               \\
                     & CHR (0 \%)    & $0.3 \cdot q$     & $-$                   & $-$               \\
@@ -222,10 +222,10 @@ Zu beachten ist, dass diese Werte durch die empirischen Einstellregeln nicht gar
 bis das System \textbf{grenzstabil ist} (endlos mit gleicher Amplitude schwingt).
 
 \begin{minipage}[c]{0.55\columnwidth}
-    \begin{tabular}{|c | c | c | c|}
+    \begin{tabular}{c c c c}
         \toprule
         Regler      & $K_R$                     & $T_N$                 & $T_V$                 \\
-        \midrule
+        \toprule
         P-Regler    & $0.5 \cdot K_{\rm RES}$   & $-$                   & $-$                   \\
         \midrule
         PI-Regler   & $0.45 \cdot K_{\rm RES}$  & $0.85 \cdot T_{\pi}$  & $-$                   \\
@@ -269,3 +269,4 @@ Im Folgenden ist das Vorgehen zur Regler-Einstellung durch Optimierung beschrieb
 
 \textbf{Achtung:} $T_{\rm end}$ sollte minestens so gross sein, dass der Regelkreis bei vernünftiger Reglereinstellung als
 eingeschwungen gilt (steady-state).
+

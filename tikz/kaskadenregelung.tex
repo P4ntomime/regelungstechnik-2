@@ -1,41 +1,63 @@
 \begin{center}
-    \scalebox{0.6}{
+    \scalebox{0.63}{
     \begin{tikzpicture}
-        [
+        [%
             scale = 1,
-            >=latex,
-            orangebox/.style={rectangle, draw=black, fill=orange, thick, minimum width=1cm, minimum height=0.5cm},
-            greenbox/.style={rectangle, draw=black, fill=green, thick, minimum width=1cm, minimum height=0.5cm},
-            yellowbox/.style={rectangle, draw=black, fill=yellow, thick, minimum width=1cm, minimum height=0.5cm},
-            whitecircle/.style={circle, draw=black, fill=white, thick, inner sep=0pt,minimum size=0.3cm},
+            >={Latex[length=1.5mm]},
+            every node/.style={%
+                font=\footnotesize, 
+                rectangle, 
+                draw, 
+                minimum width=6mm, 
+                minimum height=4mm
+            },
+            clearnode/.style={%
+                rectangle, 
+                draw=none, 
+                fill=none, 
+                minimum width=5mm, 
+                minimum height=5mm, 
+                inner sep=0pt
+            },
+            whitecircle/.style={%
+                circle, 
+                draw=black, 
+                fill=white, 
+                inner sep=0pt,
+                minimum size=2mm
+            },
         ]
 
         % nodes
-        \node               (R)                                     {$r(t)$};
-        \node[greenbox]     (F)       [right= of R]                 {F};
-        \node[whitecircle]  (A1)      [right= of F]                 {};
-        \node[orangebox]    (C1)      [right= of A1]                {C1};   
-        \node[whitecircle]  (A2)      [right= of C1]                {};
-        \node[orangebox]    (C2)      [right= of A2]                {C2};   
-        \node[yellowbox]    (G1)      [right= of C2]                {G1};
-        \node[yellowbox]    (G2)      [right= of G1]                {G2};
-        \node[yellowbox]    (H1)      [below left= of G1]           {H1};
-        \node[yellowbox]    (H2)      [below= of H1]                {H2};
-        \node               (U)       [right= of G2]                {$u(t)$};
+        \node[clearnode]    (R)                         {$r(t)$};
+        \node[fill=green]   (F)     [right=5mm of R]       {F};
+        \node[whitecircle]  (A1)    [right=5mm of F]       {};
+        \node[fill=orange]  (C1)    [right=5mm of A1]      {C1};   
+        \node[whitecircle]  (A2)    [right=5mm of C1]      {};
+        \node[fill=orange]  (C2)    [right=5mm of A2]      {C2};   
+        \node[fill=yellow]  (G1)    [right=5mm of C2]      {G1};
+        \node[fill=yellow]  (G2)    [right=5mm of G1]      {G2};
+        \node[fill=yellow]  (H1)    [below=3mm of {$(A2.south west)!0.5!(G1.south east)$}] {H1};
+        \node[fill=yellow]  (H2)    [below=3mm of H1]      {H2};
+        \node[clearnode]    (U)     [right=5mm of G2]      {$u(t)$};
 
         % arrows
-        \draw[->, thick]    (R)         to (F.west);
-        \draw[->, thick]    (F.east)    to (A1.west);
-        \draw[->, thick]    (A1.east)   to (C1.west);
-        \draw[->, thick]    (C1.east)   to (A2.west);
-        \draw[->, thick]    (A2.east)   to (C2.west);
-        \draw[->, thick]    (C2.east)   to (G1.west);
-        \draw[->, thick]    (G1.east) -> node {} coordinate(G2-G1) (G2.west);
-        \draw[->, thick]    (G2.east) -> node {} coordinate(U-G2) (U);
-        \draw[->, thick]    (U-G2)      to (H2.east);
-        \draw[->, thick]    (H2.west)   to (A1.south);
-        \draw[->, thick]    (G2-G1)     to (H1.east);
-        \draw[->, thick]    (H1.west)   to (A2.south);
-        
+        \begin{scope}[every path/.style={->, thick}]
+            \coordinate (G1G2) at ($(G1.east)!0.4!(G2.west)$);
+            \coordinate (G2U) at ($(G2.east)!0.4!(U.west)$);
+            
+            \draw   (R)         to (F.west);
+            \draw   (F.east)    to (A1.west);
+            \draw   (A1.east)   to (C1.west);
+            \draw   (C1.east)   to (A2.west);
+            \draw   (A2.east)   to (C2.west);
+            \draw   (C2.east)   to (G1.west);
+            \draw   (G1.east)   to (G2.west);
+            \draw   (G2.east)   to (U);
+            \draw   (G1G2)      to (G1G2|-H1.east) to (H1.east); 
+            \draw   (G2U)       to (G2U|-H2.east) to (H2.east); 
+            \draw   (H2.west)   to (H2.west-|A1.south) to (A1.south);
+            \draw   (H1.west)   to (H1.west-|A2.south) to (A2.south);
+        \end{scope}
     \end{tikzpicture}}
 \end{center}
