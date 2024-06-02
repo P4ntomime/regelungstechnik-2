@@ -29,7 +29,6 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
     \includegraphics[width=0.75\columnwidth]{images/digitaler_regelkreis_signaltypen.png}
 \end{center}
 
-
 \begin{outline}
     \1 Sensorseitig wird periodisch die Regelgrösse abgetastet (zuvor TP-filtern)
         \2 \textbf{TP:} Analoges Tiefpassfilter \textrightarrow\ Anti-Aliasing
@@ -39,15 +38,15 @@ Heutzutags werden fast nur noch digitale Regler implementiert. Gründe hierfür 
 
 \subsubsection{Quantisierung}{185}
 
- Das Signal eines ditialen Reglers ist sowohl \textbf{zeitdiskret} als auch \textbf{wertdiskret}.
- \vspace{0.2cm}
+Das Signal eines ditialen Reglers ist sowohl \textbf{zeitdiskret} als auch \textbf{wertdiskret}.
 
-\begin{minipage}[c]{0.4\columnwidth}
+\medskip
+\begin{minipage}[c]{0.49\columnwidth}
     \includegraphics[width=\columnwidth]{images/abtastung.png}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.58\columnwidth}
-
+\begin{minipage}[c]{0.5\columnwidth}
+    \raggedright%
     \textbf{\myul{Abtastzeit $T$}}
 
     \begin{outline}
@@ -158,13 +157,12 @@ $$ u(k) = u(k-1) + \frac{K_R}{2 T_N} \Big[ e(k) \cdot \big( T + 2 T_N  \big) +  
 
 \subsubsection{Optimierung des Speicherplatzes}{189}
 
-\begin{minipage}[c]{0.48\columnwidth}
+\begin{minipage}[c]{0.6\columnwidth}
      \includegraphics[width=\columnwidth]{images/optimierung_speicherplatz.png}
 \end{minipage}
 \hfill
-\begin{minipage}[c]{0.48\columnwidth}
+\begin{minipage}[c]{0.39\columnwidth}
     Durch geeignete Anpassung kann die Struktur des Reglers so optimiert werden, dass man sich nicht mehr die beiden Werte $u(k-1)$ und $e(k-1)$
     'merken' muss, sondern nur noch einen Wert $x(k-1)$
 \end{minipage}
-
 
