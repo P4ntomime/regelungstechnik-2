@@ -138,14 +138,14 @@ Vorteile von P-Regler und I-Regler sollen kombiniert werden:
 \end{itemize}
 
 \vspace{-0.4cm}
-$$ \text{PI-Regler:} \quad u(t) = \frac{1}{T_N} \Big( \int\limits_0^t e(\tau) \, \diff \tau + e(t) \Big) K_R
-    \; \laplace \; U(s) = \frac{1}{T_N} \Big( \frac{1}{s} E(s) + E(s) \Big) K_R $$
+$$ \text{PI-Regler:} \quad u(t) = \frac{1}{T_N} \left\lgroup \int\limits_0^t e(\tau) \, \diff \tau + e(t) \right\rgroup K_R
+    \; \laplace \; U(s) = \frac{1}{T_N} \left\lgroup \frac{1}{s} E(s) + E(s) \right\rgroup K_R $$
 $$ \text{E-Motor:} \quad T \dot{y}(t) + y(t) = K_1 u(t) - K_2 M_L(t) 
     \; \laplace \; T s Y(s) + Y(s) = K_1 U(s) - \cancel{ K_2 M_L(s)} $$
 
 \vspace{-0.3cm}
-\begin{minipage}[t]{0.5\columnwidth}
-    $$ \text{UTF Regler: } G_R(s) = \frac{U(s)}{E(s)} = K_R \Big( \frac{1}{T_N} \frac{1}{s} + 1 \Big) $$
+\begin{minipage}[t]{0.53\columnwidth}
+    $$ \text{UTF Regler: } G_R(s) = \frac{U(s)}{E(s)} = K_R \left\lgroup \frac{1}{T_N} \frac{1}{s} + 1 \right\rgroup $$
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.46\columnwidth}
