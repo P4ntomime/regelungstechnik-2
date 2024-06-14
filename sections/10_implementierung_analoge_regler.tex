@@ -110,8 +110,8 @@ $$ G_R(\jimg \omega) = \frac{U(\jimg \omega)}{E(\jimg \omega)}
 \hfill
 \begin{minipage}[c]{0.52\columnwidth}
     Der Frequenzgang $G(\jimg \omega)$ des Reglers lautet
-    $$ \frac{U_{\rm PID}}{U_E} = \underbrace{ \frac{R_2}{R_1} }_{K_R} \cdot \Bigl( 1 + \frac{1}{\jimg \omega \underbrace{C_I R_I}_{T_N}} 
-        + \jimg \omega \underbrace{ C_D R_D }_{T_V} \Bigr) $$
+    $$ \frac{U_{\rm PID}}{U_E} = \underbrace{ \frac{R_2}{R_1} }_{K_R} \cdot \Bigg\lgroup 1 + \frac{1}{\jimg \omega \underbrace{C_I R_I}_{T_N}} 
+        + \jimg \omega \underbrace{ C_D R_D }_{T_V} \Bigg\rgroup $$
     Durch Einbau eines Widerstands an der Stelle \textbf{A} wird der der PID-Regler zu einem $\text{PIDT}_1$-Regler.
 \end{minipage}
 
