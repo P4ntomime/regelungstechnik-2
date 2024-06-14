@@ -50,13 +50,13 @@ Der Frequenzgang kann mittels folgenden Diagrammen dargestellt werden:
 $$ \boxed{ G(\jimg \omega) =  \abs{G(\jimg \omega)} \cdot \e^{\jimg \angle G(\jimg \omega)} = \frac{B}{A} \cdot \e^{\jimg  \varphi} } $$
 
 
-\subsection{Frequenzgang der Grundglieder}
+\subsection{Frequenzgang der Grundglieder}{117}
 
 \includegraphics[width=\columnwidth]{images/frequenzgaenge_grundglieder.png} \\
 \textrightarrow\ Zusammengesetzte Grundglieder: siehe Skript S. 204-208
 
 
-\subsection{Darstellung mit Zeigern}
+\subsection{Darstellung mit Zeigern}{118}
 
 Im Frequenzbereich kann ein Signal \textbf{bei einer bestimmten Frequenz} als Zeigerdiagramm dargestellt werden.
 Dabei wird das Signal $\underline{y}(t)$ als Zeiger $\underline{Y}$ zur Zeit $t=0$ dargestellt, welcher anschliessend mit Frequenz $\omega = 2 \pi f$ rotiert.
@@ -83,7 +83,7 @@ Das zeitliche Signal $y(t)$ entspricht dem \textbf{Realteil} von $\underline{y}(
 Die in der Gleichung vorkommenden Grössen sind definiert als \\
 \begin{tabular}{lll}
     $ | \underline{y}(t) | = B$                 & Maximale Amplitude des Ausgangssignals \\
-    $ \mathrm{Re}(\underline{y}(t)) = y(t)$     & Ausgangssignal (zeitlich) \\
+    $ \Re{(\underline{y}(t))} = y(t)$           & Ausgangssignal (zeitlich) \\
     $ \underline{y}(0) = \cbl{\underline{Y}} $  & Anfangszeiger (komplexe Amplitude)
 \end{tabular}
 
@@ -114,10 +114,10 @@ Die in der Gleichung vorkommenden Grössen sind definiert als \\
 $$ T \dot{y} + y(t) = K u(t) \quad \underrightarrow{\text{Frequenzbereich}} \quad 
 T \cdot \jimg \omega \cdot \underline{Y} + \underline{Y} = [\jimg \omega T + 1] \cdot \underline{Y} = K \underline{U} $$
 $$ \frac{\underline{Y}}{\underline{U}} = \frac{K}{\jimg \omega T + 1} = G(\jimg \omega) $$
-$$ |G(\jimg \omega)| = \frac{|\underline{Y}|}{|\underline{U}|} = \frac{K}{\sqrt{(\omega T)^2 + 1^2}} \qquad \varphi = \frac{K}{1 + (\omega T)^2} - \jimg \frac{K \omega T}{1 + (\omega T)^2 } + \pi $$
+$$ |G(\jimg \omega)| = \frac{|\underline{Y}|}{|\underline{U}|} = \frac{K}{\sqrt{(\omega T)^2 + 1^2}} \qquad \varphi = \arctan \left\lgroup \frac{\Im{G(\jimg \omega)}}{\Re{G(\jimg \omega)}}\right\rgroup + \pi$$
 
 
-\subsubsection{Allgemeiner Fall}
+\subsubsection{Allgemeiner Fall}{120}
 
 
 \vspace{-0.5cm} % reduce space before align environment
@@ -129,13 +129,11 @@ $$ |G(\jimg \omega)| = \frac{|\underline{Y}|}{|\underline{U}|} = \frac{K}{\sqrt{
     &= \frac{b_m (\jimg \omega)^m + \cdots + b_1 \jimg \omega + b_0}{a_n (\jimg \omega)^n + \cdots + a_1 \jimg \omega + a_0} = G(\jimg \omega) \\
     |G(\jimg \omega)| = \frac{|\underline{Y}|}{|\underline{U}|}
     &= \frac{| b_m (\jimg \omega)^m + \cdots + b_1 \jimg \omega + b_0 |}{| a_n (\jimg \omega)^n + \cdots + a_1 \jimg \omega + a_0 |} \\
-    \varphi = \angle G(\jimg \omega) &= \arctan \left\lgroup \frac{\mathrm{Im} \{G(\jimg \omega)\}}{\mathrm{Re}\{G(\jimg \omega)\}} \right\rgroup (+ \pi)
+    \varphi = \angle G(\jimg \omega) &= \arctan \left\lgroup \frac{\Im{G(\jimg \omega)}}{\Re{G(\jimg \omega)}}\right\rgroup (+ \pi)
 \end{align*}
 
 
-
-
-\subsection{Serieschaltung von LZI-Systemen}
+\subsection{Serieschaltung von LZI-Systemen}{121}
 
 \begin{center}
     \includegraphics[width=0.7\columnwidth]{images/frequenzgang_serieschaltung.png}
@@ -144,7 +142,7 @@ $$ \boxed{ \underline{Y} = \underbrace{G_1(\jimg \omega) \cdot G_2(\jimg \omega)
 $$ G_1 \cdot G_2 = |G_1| \cdot \e^{\jimg \angle G_1} \cdot |G_2| \cdot \e^{\jimg \angle G_2} = |G_1| |G_2| \cdot \e^{\jimg (\angle G_1 + \angle G_2)} $$
 
 
-\subsection{Parallelschaltung von LZI-Systemen}
+\subsection{Parallelschaltung von LZI-Systemen}{124}
 
 \begin{center}
     \includegraphics[width=0.5\columnwidth]{images/frequenzgang_parallelschaltung.png}
@@ -154,7 +152,7 @@ $$ \boxed{ \underline{Y} = \underline{Y}_1 + \underline{Y}_2 = G_1(\jimg \omega)
 $$ G_1 + G_2 = \mathrm{Re}\{ G_1 \} + \mathrm{Re}\{ G_2 \} + \jimg ( \mathrm{Im}\{ G_1 \} + \mathrm{Im}\{ G_2 \}) $$
 
 
-\subsection{Kreisschaltung (Gegenkopplung) von LZI-Systemen}
+\subsection{Kreisschaltung (Gegenkopplung) von LZI-Systemen}{124-125}
 
 \begin{minipage}[c]{0.5\columnwidth}
     \includegraphics[width=\columnwidth]{images/frequenzgang_kreisschaltung.png}
@@ -162,7 +160,7 @@ $$ G_1 + G_2 = \mathrm{Re}\{ G_1 \} + \mathrm{Re}\{ G_2 \} + \jimg ( \mathrm{Im}
 \hfill
 \begin{minipage}[c]{0.48\columnwidth}
     $$ \boxed{ \underline{Y} = \underbrace{\frac{G_1(\jimg \omega)}{1 + G_1(\jimg \omega) \cdot G_2(\jimg \omega)}}_{G(\jimg \omega)} \cdot \underline{U}} $$
-    \textrightarrow\ Anwendung von \textbf{Mason Regel} (SigSys)
+    \textrightarrow\ Anwendung von \textbf{Mason's Regel}
 \end{minipage}
 
 
