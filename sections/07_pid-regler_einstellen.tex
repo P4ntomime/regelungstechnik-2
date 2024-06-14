@@ -102,7 +102,7 @@ Hierbei handelt es sich um eine \textbf{analytische} Einstellmetode \textrightar
 Der Regler wird dann so entworfen, dass er die \textbf{invertierte Stecke} enthält.
 \begin{align*}
     G_R(s) &= \frac{K_R}{s} G_s^{-1}(s) \\
-    G_0(s) &= G_R(s) \cdot G_S(s) \frac{K_R}{s} G_s^{-1}(s) \cdot G_S(s) = \frac{K_R}{s} \text{ \textrightarrow\ Integrator} \\
+    G_0(s) &= G_R(s) \cdot G_S(s) = \frac{K_R}{s} G_s^{-1}(s) \cdot G_S(s) = \frac{K_R}{s} \text{ \textrightarrow\ Integrator} \\
     G_f(s) &= \frac{G_0(s)}{1 + G_0(s)} = \frac{1}{\frac{1}{K_R} s + 1} \text{ \textrightarrow\ PT}_1 \text{-System} 
 \end{align*}
 
