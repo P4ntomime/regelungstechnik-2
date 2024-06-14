@@ -8,7 +8,7 @@
     \end{center}
     \includegraphics[width=\columnwidth]{images/pid_regler_aufbau.png}
 
-    \textbf{Hinweis:} $P$-Anteil darf auch nach vorne gezogen werden (wie links) 
+    \textbf{Hinweis:} $P$-Anteil darf auch nach vorne gezogen werden (wie rechts) 
     \textrightarrow\ ändert Parameter von $I$- und $\text{DT}_1$-Gliedern
 \end{minipage}
 \hfill
@@ -110,11 +110,11 @@ Regelstrecken 1. und 2. Ordnung ($\text{PT}_1$, $\text{PT}_2$, $I$, $\text{IT}_1
 Bei Strecken höherer Ordnung liefert dieses Vorgehen keine genügenden Resultate mehr.
 
 \begin{itemize}
-    \item Geschlossener Regelkreis ist zu langen oder zu wenig gedämpft
+    \item Geschlossener Regelkreis ist zu lange oder zu wenig gedämpft
     \item Einstellregeln funktionieren gar nicht, weil die Regelstrecke im offenen Betrieb immer instabil ist
 \end{itemize}
 
-\textbf{Konsequenz:} Für Strecken höherer Ordnung bracuht es auch einen Regler höherer Ordnung \textrightarrow Kaskadenregelung
+\textbf{Konsequenz:} Für Strecken höherer Ordnung braucht es auch einen Regler höherer Ordnung \textrightarrow Kaskadenregelung
 
 
 \subsection{Übertragungsfunktionen Kaskadenregelung}
@@ -128,7 +128,7 @@ Bei Strecken höherer Ordnung liefert dieses Vorgehen keine genügenden Resultat
 \hfill
 \begin{minipage}[c]{0.43\columnwidth}
     UTF innerer Regelkreis
-    $$ G_{f1} = \frac{G_1 G_2}{1 + G_1 G_2} $$
+    $$ G_{f1} = \frac{G_1 C_2}{1 + G_1 C_2} $$
     UTF äusserer Regelkreis
     $$ \textstyle{ G_{f2} = \frac{G_2 G_{f1} C_1}{1 + G_2 G_{f1} C_1} = \frac{G_2 G_1 C_2 C_1}{1 + G_1 C_2 + G_2 G_1 C_2 C_2}} $$
 \end{minipage}
@@ -179,7 +179,7 @@ ist der innere Regelkreis aus sicht des äusseren Regelkreises gar nicht vorhand
 
 \subsection{Wind-Up (Integratoren)}{172}
 
-Das Wind-Up Problem tritt auf, die folgenden drei Voraussetungen erfüllt sind
+Das Wind-Up Problem tritt auf, wenn die folgenden drei Voraussetungen erfüllt sind
 
 \begin{itemize}
     \item Der Regler enthält einen \textbf{I-Anteil}

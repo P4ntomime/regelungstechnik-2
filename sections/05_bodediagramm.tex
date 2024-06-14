@@ -124,7 +124,7 @@ Mittels dieser Approximationen können die einzelen Komponenten (Faktoren) der g
     \begin{itemize}
         \item \cor{$|K|_{\deci \bel} = 40$ \textrightarrow\ $K = 100$}
         \item \cgn{$\omega_1 = \frac{1}{T_1} = 0.5$ \textrightarrow\ $T_1 = \frac{1}{0.5} = 2$}
-        \item \textcolor{cyan}{$\omega_2 = \frac{1}{T_2} = 10$ \textrightarrow\ $T_1 = \frac{1}{10} = 0.1$}
+        \item \textcolor{cyan}{$\omega_2 = \frac{1}{T_2} = 10$ \textrightarrow\ $T_2 = \frac{1}{10} = 0.1$}
         \item \textcolor{cyan}{$\zeta = 0.1$} \textrightarrow\ gegeben 
     \end{itemize}
 \end{minipage}
@@ -183,7 +183,7 @@ Wenn das System die \textbf{Anforderungen des Nyquist-Kriteriums erfüllt}, verh
 
 \subsection{Alternative Stabilitätskriterien -- Vorzeichenregel}{142}
 
-Die Stabilität kann alternativ 'direkt' au sden Parametern der \textbf{Differentialgleichung} (des
+Die Stabilität kann alternativ 'direkt' aus den Parametern der \textbf{Differentialgleichung} (des
 Frequenzgangs) des \textbf{geschlossenen Regelkreises} bestimmt werden.\\
 Aus der DGL der Form
 $$ \sum\limits_{k=0}^n a_k \cdot y^{(k)}(t) = \sum\limits_{k=0}^m b_k \cdot u^{(k)}(t) $$
@@ -195,8 +195,8 @@ gemacht werden.
 Eine \textbf{notwendige} Stabilitätsbedingung für das \cbl{charakteristische Polynom}
 \begin{align*}
     % \frac{Y}{U}                             &= \frac{\text{Zähler}}{\cbl{a_n \lambda^n + a_{n-1} \lambda_{n-1} + \ldots + a_2 \lambda^2  + a_1 \lambda + a_0 } } \\
-    \frac{Y(s)}{U(s)}                       &= \frac{\text{Zähler}}{\cbl{a_n s^n + a_{n-1} s_{n-1} + \ldots + a_2 s^2  + a_1 s + a_0 } } \\
-    \frac{Y(\jimg \omega)}{(\jimg \omega)}  &= \frac{\text{Zähler}}{\cbl{a_n (\jimg \omega)^n + a_{n-1} (\jimg \omega)_{n-1} + \ldots + a_2 (\jimg \omega)^2  + a_1 (\jimg \omega) + a_0 } }
+    \frac{Y(s)}{U(s)}                       &= \frac{\text{Zähler}}{\cbl{a_n \cdot s^n + a_{n-1} \cdot s^{n-1} + \ldots + a_2 \cdot s^2  + a_1 \cdot s + a_0 } } \\
+    \frac{Y(\jimg \omega)}{U(\jimg \omega)}  &= \frac{\text{Zähler}}{\cbl{a_n \cdot (\jimg \omega)^n + a_{n-1} \cdot (\jimg \omega)^{n-1} + \ldots + a_2 \cdot (\jimg \omega)^2  + a_1 \cdot (\jimg \omega) + a_0 } }
 \end{align*}
 besteht darin, das alle Koeffizienten existieren $a_0 \ldots a_n$ (also $\neq 0$ sind) \textbf{und dasselbe Vorzeichen} haben. \\
 Bei System erster und zweiter Ordnung ist die Vorzeichenregel auch \textbf{hinreichend} für die Stabilität.
