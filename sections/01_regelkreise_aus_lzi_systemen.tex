@@ -19,7 +19,7 @@
     \end{minipage}
     \hfill
     \begin{minipage}[c]{0.5\columnwidth}
-        Eine regelung besitzt eine \textbf{Gegenkopplung}
+        Eine Regelung besitzt eine \textbf{Gegenkopplung}
         $$ y = K H \cdot (r - y) + K \cdot z$$
         $$ y = \underbrace{\frac{K H}{1 + K H} \cdot r}_{\text{Sensitivität}} + \underbrace{\frac{K}{1 + K H} \cdot z}_{\text{Störungsunterdrückung}} $$
     \end{minipage}
@@ -27,7 +27,7 @@
 
 \subsubsection{Störungsunterdrückung}{106}
 
-    Ein Regler ist vorteilhaft, um Störungen zu unterdrücken, denn für die Verstärkung der Störung $z$ gilt:
+    Ein Regler ist vorteilhaft, um Störungen zu unterdrücken, denn für die Verstärkung $H$ der Störung $z$ gilt:
     $$ \lim\limits_{H \to \infty} \frac{K}{1 + K H} \cdot z = 0 $$
     \textrightarrow\ Hat der Regler eine grosse Verstärkung $H$, so wird die Störung $z$ unterdrückt\\
     \textrightarrow\ Bei einer Steuerung wird die Störung nicht unterdrückt
