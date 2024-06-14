@@ -158,7 +158,7 @@ Der  Parameter $T_N$ des PI-Reglers wird so gewählt, dass der \textbf{offene Re
 $$ G_0(s) = G_R(s) \cdot G_S(s) = K_R \frac{1 + T_N s}{T_N s} \cdot \frac{K_1}{T s + 1} \overset{T_N = T}{=} K_R \frac{K_1}{T_N s} $$
 
 Für den \textbf{geschlossenen Regelkreis} ergibt sich somit ein $\text{PT}_1$-System mit Verstärkung $1$\\
-(\textrightarrow\ kein statischer Fehler im steady-state). Die Zeitkonstante $T_{geschl}$ wird mit $K_R$ des Reglers eingestellt.
+(\textrightarrow\ kein statischer Fehler im steady-state). Die Zeitkonstante $T_{\rm geschl}$ wird mit $K_R$ des Reglers eingestellt.
 
 $$ G_f(s) = \frac{G_0(s)}{1 + G_0(s)} =  \frac{\frac{K_R  K_1}{T_N s} }{1 \frac{K_R  K_1}{T_N s}} = \frac{K_R K_1}{T_N s + K_1 K_R} = \frac{1}{\frac{T_N}{K_R  K_1}s + 1} $$
 
@@ -185,7 +185,7 @@ Wahl der Parameter des Reglers kompensiert. \\
         \item \textbf{Konstante Störungen werde unterdrückt (kein steady-state Fehler)}
         \item Grosse Verstärkung führt noch immer zu Sättigung
         \item Effekt des Rauschens eher harmlos, weil kleine Verstärkungen gewählt werden können
-        \item $\Phi_{RES} = 90 \degree$ und $K_{RES} = \infty$
+        \item $\Phi_{\rm RES} = 90 \degree$ und $K_{\rm RES} = \infty$
     \end{itemize}
 \end{minipage}
 \hfill
@@ -203,7 +203,7 @@ Ein D-Anteil $\text{DT}_1$ wäre ungünstig, weil
 
 \begin{itemize}
     \item Verstärkung von hohen Frequenzen \textrightarrow\ Erhöhung des Rauschens
-    \item Verbesserung der Phasenreserve \textrightarrow\ unnötig bei $\Phi_{RES} = 90 \degree$
+    \item Verbesserung der Phasenreserve \textrightarrow\ unnötig bei $\Phi_{\rm RES} = 90 \degree$
 \end{itemize}
 
 Allenfalls sinnvoll wäre ein Tiefpassfilter für den P-Anteil ($\text{PT}_1$ statt P), um das Rauschen der Stellgrösse zu 
