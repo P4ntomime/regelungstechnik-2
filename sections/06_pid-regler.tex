@@ -3,16 +3,16 @@
 \begin{outline}
     \1 \textbf{P}: Proportional $K_P \cdot e(t)$
         \2 Gegenwart: Gewichtung des \textbf{aktuellen} Fehlers $e(t)$
-            \3 Stellgrösse $u(t)$ ist abhängig vom aktuell vorhandenen Fehler
+            \3 Stellgrösse $u(t)$ ist abhängig vom aktuell vorhandenen Fehler $e(t)$
             \3 Wie gross Fehler in Vergangenheit war oder in welche Richtung er sich entwickelt, ist irrelevant
     \1 \textbf{I}: Integral $K_I \int e(t)$
-        \2 Vergangenheit: Gewichtung der \textbf{Summe vergangener} Fehler
+        \2 Vergangenheit: Gewichtung der \textbf{Summe vergangener} Fehler $e(t)$
             \3  Stellgrösse $u(t)$ ist abhängig davon, wie lange ein Fehler schon existiert
             \3 Wie gross der aktuelle Fehler ist und wie start er sich gerade ändert, ist irrelevant
     \1 \textbf{D}: Differential $K_D \cdot \dot{e}(t)$
-        \2 Zukunft, Trend: Gewichtung der \textbf{Änderung} des Fehlers
+        \2 Zukunft, Trend: Gewichtung der \textbf{Änderung} des Fehlers $e(t)$
             \3 Stellgrösse ist abhängig davon, wie stark der Fehler gerade zu-/abnimmt
-            \3 Wie gros der aktuelle Fehler ist und wie lange er schon existiert, ist irrelevant
+            \3 Wie gross der aktuelle Fehler ist und wie lange er schon existiert, ist irrelevant
 \end{outline}
 
 
@@ -42,7 +42,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.52\columnwidth}
-    $$ \boxed{ G_{\rm PID}(\jimg \omega) = K_R \cdot \Big( 1 + \frac{1}{\jimg \omega T_N} +\frac{\jimg \omega T_V}{1 + \jimg \omega T_C} \Big) } $$
+    $$ \boxed{ G_{\rm PID}(\jimg \omega) = K_R \cdot \left\lgroup 1 + \frac{1}{\jimg \omega T_N} +\frac{\jimg \omega T_V}{1 + \jimg \omega T_C} \right\rgroup } $$
 \end{minipage}
 
 
@@ -50,7 +50,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 \label{PID-Regler multiplikative Form}
 
     \includegraphics[width=0.8\columnwidth]{images/pid_regler_aufbau_serielle_form.png}
-    $$ \boxed{ G_{\rm PID}(\jimg \omega) = \tilde{K}_R \cdot \Big( 1 + \frac{1}{\jimg \omega \tilde{T}_N} \Big) \cdot \Big(1 + \frac{\jimg \omega \tilde{T}_V}{1 + \jimg \omega T_C} \Big) } $$
+    $$ \boxed{ G_{\rm PID}(\jimg \omega) = \tilde{K}_R \cdot \left\lgroup 1 + \frac{1}{\jimg \omega \tilde{T}_N} \right\rgroup \cdot \left\lgroup1 + \frac{\jimg \omega \tilde{T}_V}{1 + \jimg \omega T_C} \right\rgroup } $$
 
 \subsubsection{Umrechnung Parameter Variante 1 -- Variante 2}
 
@@ -61,7 +61,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 \subsubsection{Umrechnung Parameter Variante 2 -- Variante 3}
 
 \begin{tabular}{c c c c c}
-    $K_R = \tilde{K}_R \Big( 1 + \frac{\tilde{T}_V}{\tilde{T}_N} \Big)$ & &
+    $K_R = \tilde{K}_R \left\lgroup 1 + \frac{\tilde{T}_V}{\tilde{T}_N} \right\rgroup$ & &
     $T_N = \tilde{T}_N + \tilde{T}_V$ & &
     $T_V = \tilde{T}_V \frac{\tilde{T}_N - \tilde{T}_C}{\tilde{T}_N + \tilde{T}_V}$ 
 \end{tabular}
@@ -77,7 +77,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
             \2 $C = K_p + \frac{K_i}{s} + \frac{K_d \cdot s}{T_f \cdot s + 1}$
         \1 Standardform
             \2 \mylstbox{C = pidstd(Kp, Ti, Td, N)}
-            \2 $C = K_p \Big( 1 + \frac{1}{T_i \cdot s} + \frac{T_d \cdot s}{\frac{T_d}{N} s + 1} \Big)$
+            \2 $C = K_p \left\lgroup 1 + \frac{1}{T_i \cdot s} + \frac{T_d \cdot s}{\frac{T_d}{N} s + 1} \right\rgroup$
             \2 $T_f = \frac{T_d}{N}$
     \end{outline}
 \end{minipage}
@@ -91,7 +91,7 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
         \2 $D \frac{N}{1 + N \frac{1}{s}} = \frac{D \cdot s}{\frac{1}{N} s + 1}$
         \2 $P = K_P$, $I = K_I$, $D = K_D$, $N = \frac{1}{T_C}$
     \1 Standardform ('ideal')
-        \2 $P \cdot \Big( 1 + I \frac{1}{s} + D \frac{N}{1 + N \frac{1}{s}} \Big)$
+        \2 $P \cdot \left\lgroup 1 + I \frac{1}{s} + D \frac{N}{1 + N \frac{1}{s}} \right\rgroup$
         \2 $D \frac{N}{1 + N \frac{1}{s}} = \frac{D \cdot s}{\frac{1}{N} s + 1}$
         \2 $P = K_R$, $I = \frac{1}{T_N}$, $D = T_V$, $N = \frac{1}{T_C}$
     \end{outline}
@@ -117,6 +117,6 @@ Alle drei Strukturen sind \textbf{äquivalent}. Es handelt sich nur um unterschi
 
 \subsection{PID-Regler im Bodediagramm}
 
-\textbf{Achtung:} Gemäss den Frequenzgängen der verschiedenen Darstellungsformen aus Abschnitt ~\ref{Strukturen PID-Regler} 
+\textbf{Achtung:} Gemäss den Frequenzgängen der verschiedenen Darstellungsformen aus Abschnitt~\ref{Strukturen PID-Regler} 
 eines PID-Reglers darf im Bodediagramm \textbf{nur Variante 3 grafisch aus den Einzelteilen addiert} werden. 
 

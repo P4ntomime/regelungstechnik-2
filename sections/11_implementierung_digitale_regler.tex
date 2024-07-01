@@ -114,7 +114,7 @@ Die Fläche $A$ kann auf mehrere Arten approximiert werden:
 \begin{minipage}[c]{0.68\columnwidth}
     \begin{tabular}{ll}
         Rechteckregel vorwärts (Euler)      & $ A = T \cdot e(k-1) $    \\
-        Rechteckregel rüclwärts             & $ A = T \cdot e(k)$       \\
+        Rechteckregel rückwärts             & $ A = T \cdot e(k)$       \\
         \textbf{Trapezregel (Tustin)}       & $ A = T \cdot \frac{e(k-1) + e(k)}{1} $ 
     \end{tabular}
 \end{minipage}
@@ -145,7 +145,7 @@ Daraus soll die zu implementierende \textbf{Differenzengleichung} ermittelt werd
 $$ 1. \quad G_R(\jimg \omega) = K_R \cdot \frac{1 + T_N \jimg \omega}{T_N \jimg \omega} \quad {\textrightarrow\ }2. $$
 $$ G_{R, \, \rm diskret}(z) \overset{3.}{=} K_R \cdot \frac{1 + T_N \frac{2}{T} \frac{1- z^{-1}}{1 + z^{-1}}}{T_N \frac{2}{T} \frac{1- z^{-1}}{1 + z^{-1}}} 
 \overset{4.}{=} K_R \cdot \frac{T (1 + z^{-1}) + 2 T_N (1 - z^{-1})}{2 T_N (1- z^{-1})} = \frac{U(z)}{E(z)} $$
-$$  5. \quad U(z) (1 - z^{-1}) = \frac{K_R}{2 T_N} \cdot E(z) \Big( T (1 + z^{-1}) + 2 T_N (1 - z^{-1}) \Big) $$
+$$  5. \quad U(z) (1 - z^{-1}) = \frac{K_R}{2 T_N} \cdot E(z) \left\lgroup T (1 + z^{-1}) + 2 T_N (1 - z^{-1}) \right\rgroup $$
 $$  6. \quad u(k) - u(k-1) = \frac{K_R}{2 T_N} \Big[ T \cdot e(k) + T \cdot e(k-1) + 2 T_N \cdot e(k) - 2 T_N \cdot e(k-1) \Big] $$
 $$ u(k) = u(k-1) + \frac{K_R}{2 T_N} \Big[ e(k) \cdot \big( T + 2 T_N  \big) +  e(k-1) \cdot \big( T - 2 T_N  \big)  \Big]  $$
 
