@@ -13,15 +13,17 @@
 \usepackage{enumitem}               % list customization
 \usepackage{outlines}               % easy nested lists
 \usepackage{tabularx}               % some nicer tables with X columns
-\usepackage{booktabs}               % booktabs seplines
 \usepackage{hhline}                 % double lines in tables
+\usepackage{booktabs}               % booktabs seplines
+\usepackage{boldline}               % bold (vertical) lines in tables
 
 
 \usepackage{amsmath}                % math symbols
 \usepackage{amssymb}                % more math symbols
 \usepackage{mathtools}
-\usepackage[squaren]{SIunits}       % SI-units
+\usepackage{mhsetup}                % needed to modify pmatrix* environment
 \usepackage{txfonts}
+\usepackage[squaren]{SIunits}       % SI-units
 \usepackage{bm}                     % bold math symbols
 \usepackage{trfsigns}               % needed for "Laplace" symbol (Korrespondenz)
 \usepackage{mathrsfs}               % needed for Fourier transform "F"
@@ -32,7 +34,7 @@
 \usepackage{graphbox}               % needed for aligning images in multicol environment
 \usepackage{scalerel}               % scale any objects
 \usepackage{anyfontsize}            % set any font size
-\usepackage{xcolor}                 % needed for colors
+\usepackage[table]{xcolor}                 % needed for colors
 
 
 \usepackage{tcolorbox}              % colored boxes
@@ -42,7 +44,7 @@
 
 \usepackage{tikz}                   % needed for TikZ drawings
 
-\usepackage{pgfplots}               % needed for easy axis generation in TikZ drawings
+\usepackage{pgfplots}               % needed for  easy axis generation in TikZ drawings
 
 
 \usepackage{listings}               % for nicer code display
@@ -539,7 +541,7 @@
                                 \begin{minipage}[t]{0.79\columnwidth}
                                     \raggedright%
                                     \normalfont\Huge\bfseries\title{}\\
-                                    \normalfont\Large\semester\ -- \dozent{}\\
+                                    \normalfont\Large\semester\quad \dozent{}\\
                                     \normalfont\large Autoren:\\
                                     \normalfont\large\author{}\\[2mm]
                                 \end{minipage}
